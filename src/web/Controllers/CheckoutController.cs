@@ -178,8 +178,6 @@ namespace OxxCommerceStarterKit.Web.Controllers
 
                     ch.Cart.AcceptChanges();
 
-                    // TODO: This assume the different payment pages are direct children of the start page
-                    // and could break the payment if we move the pages.
                     BasePaymentPage page = null;
                     var startPage = _contentRepository.Get<HomePage>(ContentReference.StartPage);
                     foreach (var p in _contentRepository.GetChildren<BasePaymentPage>(startPage.Settings.PaymentContainerPage))

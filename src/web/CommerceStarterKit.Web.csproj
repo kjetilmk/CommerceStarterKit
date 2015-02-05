@@ -1090,7 +1090,6 @@
     <Compile Include="Business\UIDescriptor\CatalogContentUiDescriptor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Api\ImportEPiServerDataController.cs" />
     <Compile Include="Controllers\Admin\DeveloperToolsController.cs" />
     <Compile Include="Controllers\BasePartialContentController.cs" />
     <Compile Include="Business\Payment\DibsPaymentProcessingResult.cs" />
