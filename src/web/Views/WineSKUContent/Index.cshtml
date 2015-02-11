@@ -22,7 +22,7 @@
 
 @helper GetImageTag(MediaData media, string size, UrlResolver urlResolver)
 {
-    var url = urlResolver.GetUrl(media.ContentLink, null, new VirtualPathArguments() {ContextMode = ContextMode.Default}) + "?preset=" + size;
+    var url = urlResolver.GetUrl(media.ContentLink, null, new VirtualPathArguments() { ContextMode = ContextMode.Default }) + "?preset=" + size;
     <img src="@url" />
 }
 
@@ -111,7 +111,7 @@
                             <p>
                                 Artnr:
                                 <span itemprop="productID">
-                                    @Model.CatalogContent.Name
+                                    @Model.CatalogContent.Code
                                 </span>
                             </p>
                         </div>
@@ -161,7 +161,7 @@
                                         <td>@Html.Translate("/common/product/wine/maturity")</td>
                                         <td>@Html.PropertyFor(p => p.CatalogContent.Maturity)</td>
                                     </tr>
-                                  
+
                                     <tr>
                                         <td>@Html.Translate("/common/product/wine/taste")</td>
                                         <td>@Html.PropertyFor(p => p.CatalogContent.Taste)</td>
@@ -170,7 +170,7 @@
                                         <td>@Html.Translate("/common/product/wine/size")</td>
                                         <td>@Html.PropertyFor(p => p.CatalogContent.Size)</td>
                                     </tr>
-                                   
+
                                 </table>
                             </div>
                         </div>
@@ -183,19 +183,19 @@
                 @if (Model.CatalogContent != null)
                 {
                     <div>
-                        @Html.Partial("_BuyItem",Model.CartItem)
+                        @Html.Partial("_BuyItem", Model.CartItem)
                     </div>
                 }
             </div>
             @Html.Partial("_SocialBar", new SocialBarViewModel(Html.Translate("/common/product/share")))
 
-
-
-
+            <div>
+                @Html.PropertyFor(p => p.CatalogContent.AdditionalContent, new { EditContainerClass = "overflow-hidden", CssClass = "clearfix" })
+            </div>
         </div>
-
-
     </div>
+    
+
     @Html.Partial("_SimilarProducts", Model.CatalogContent)
 
 

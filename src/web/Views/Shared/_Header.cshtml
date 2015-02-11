@@ -10,7 +10,7 @@
     {
         selectedLanguage = new ChromeLanguageInfo() {DisplayName = "Unknown", Selected = true, Url = "/", EditUrl = "/"};
     }
-    string logoLinkUrl = isInEditMode == false ? selectedLanguage.Url : selectedLanguage.EditUrl;
+    
 }
 
 <div class="header">
@@ -61,7 +61,7 @@
 
         </div>
         <div class="logo">
-            <a href="/@logoLinkUrl"><img class="img-responsive" src="@Model.LogoImageUrl" alt="Logo"></a>
+            <a href="@Model.HomePageUrl"><img class="img-responsive" src="@Model.LogoImageUrl" alt="Logo"></a>
         </div>
     </div>
 </div>

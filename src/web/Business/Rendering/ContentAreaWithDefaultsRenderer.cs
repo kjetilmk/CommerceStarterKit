@@ -25,6 +25,12 @@ namespace OxxCommerceStarterKit.Web.Business.Rendering
 
         protected override string GetContentAreaItemCssClass(HtmlHelper htmlHelper, ContentAreaItem contentAreaItem)
         {
+            var childrenCssClass = htmlHelper.ViewData["ChildrenCssClass"];
+            if(childrenCssClass != null)
+            {
+                return childrenCssClass.ToString();
+            }
+
             var tag = GetContentAreaItemTemplateTag(htmlHelper, contentAreaItem);
 
             var content = contentAreaItem.GetContent(ContentRepository);

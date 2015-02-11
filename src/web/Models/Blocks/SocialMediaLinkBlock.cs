@@ -12,6 +12,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using OxxCommerceStarterKit.Core.Attributes;
 
 namespace OxxCommerceStarterKit.Web.Models.Blocks
 {
@@ -19,17 +20,20 @@ namespace OxxCommerceStarterKit.Web.Models.Blocks
 	/// Used to insert a link which is styled as a button
 	/// </summary>
 	[ContentType(GUID = "9F50587C-C09E-4B9D-8011-54BABF4AFB24")]
+    [SiteImageUrl]
 	public class SocialMediaLinkBlock : SiteBlockData
 	{
 		[Display(Order = 10, GroupName = SystemTabNames.Content)]
 		[Searchable(false)]
+        [CultureSpecific]
 		public virtual string Title { get; set; }
 
-		[Display(Order = 20, GroupName = SystemTabNames.Content, Name = "Lenke til sosialt media")]
+		[Display(Order = 20, GroupName = SystemTabNames.Content, Name = "Link to Social Media site")]
 		[Searchable(false)]
+        [CultureSpecific]
 		public virtual Url Link { get; set; }
 
-		[Display(Order = 30, GroupName = SystemTabNames.Content, Name = "CSS klasse for ikon")]
+		[Display(Order = 30, GroupName = SystemTabNames.Content, Name = "CSS Class for icon")]
 		[Searchable(false)]
 		public virtual string CssClass { get; set; }
 	}

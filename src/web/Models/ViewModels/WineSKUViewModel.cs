@@ -49,8 +49,8 @@ namespace OxxCommerceStarterKit.Web.Models.ViewModels
             List<MediaData> mediaData = new List<MediaData>();
             foreach (ContentReference mediaReference in mediaReferences)
             {
-                var file = contentLoader.Get<MediaData>(mediaReference);
-                if (file != null)
+                MediaData file;
+                if (contentLoader.TryGet<MediaData>(mediaReference, out file))
                 {
                     mediaData.Add(file);
                 }

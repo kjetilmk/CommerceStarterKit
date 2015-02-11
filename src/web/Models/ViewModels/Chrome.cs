@@ -17,6 +17,7 @@ using System.Web;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.SpecializedProperties;
+using OxxCommerceStarterKit.Web.Models.PageTypes;
 
 namespace OxxCommerceStarterKit.Web.Models.ViewModels
 {
@@ -39,6 +40,8 @@ namespace OxxCommerceStarterKit.Web.Models.ViewModels
         public Url LogoImageUrl { get; set; }
         public ContentReference SearchPage { get; set; }
         public IEnumerable<ChromeLanguageInfo> Languages { get; set; }
+        public ContentArea GlobalFooterContent { get; set; }
+        public string HomePageUrl { get; set; }
 
         //TODO: Remove after configuration
         public bool ShowWarning
