@@ -78,12 +78,12 @@ namespace OxxCommerceStarterKit.Web.Controllers
 			var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
 			if (ContentReference.IsNullOrEmpty(ContentReference.StartPage) == false)
 			{
+                // TODO: Use the Chrome instead
 				HomePage startPage = contentLoader.Get<HomePage>(ContentReference.StartPage);
 
-				model.TopLeftMenu = model.TopLeftMenu ?? startPage.Settings.TopLeftMenu;
-				model.TopRightMenu = model.TopRightMenu ?? startPage.Settings.TopRightMenu;
-				model.SocialMediaIcons = model.SocialMediaIcons ?? startPage.Settings.SocialMediaIcons;
-				model.FooterButtons = model.FooterButtons ?? startPage.Settings.FooterButtons;
+				model.TopLeftMenu = model.TopLeftMenu ?? startPage.TopLeftMenu;
+				model.TopRightMenu = model.TopRightMenu ?? startPage.TopRightMenu;
+				model.SocialMediaIcons = model.SocialMediaIcons ?? startPage.SocialMediaIcons;
 				if (model.CurrentPage != null)
 				{
 					model.Section = model.Section ?? GetSection(model.CurrentPage.ContentLink);

@@ -23,14 +23,24 @@ namespace OxxCommerceStarterKit.Web.Business
     {
         public SettingsBlock GetSettings()
         {
+            HomePage homePage = GetStartPage();
+            if (homePage != null)
+                return homePage.Settings;
+
+            return null;
+        }
+
+        public HomePage GetStartPage()
+        {
             var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
             // This can actually be 0 if we have a problem with our language settings
             if (ContentReference.StartPage != null && ContentReference.StartPage.ID > 0)
             {
                 var startPage = contentLoader.Get<HomePage>(ContentReference.StartPage);
-                return startPage.Settings;
+                return startPage;
             }
             return null;
         }
+
     }
 }

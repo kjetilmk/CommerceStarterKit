@@ -23,7 +23,6 @@ namespace OxxCommerceStarterKit.Web.Models.ViewModels
 		LinkItemCollection TopRightMenu { get; set; }
 		IEnumerable<PageData> FooterMenu { get; set; }
 		ContentArea SocialMediaIcons { get; set; }
-		ContentArea FooterButtons { get; set; }
 		IContent Section { get; set; }
         ContentReference LoginPage { get; set; }
         ContentReference AccountPage { get; set; }

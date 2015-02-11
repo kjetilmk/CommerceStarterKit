@@ -102,55 +102,9 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 		public virtual PageReference NewsletterUnsubscribePage { get; set; }
 
 		[Searchable(false)]
-		[Display(
-			Name = "TopLeftMenu",
-			Description = "The menu at top left",
-			GroupName = SystemTabNames.Content,
-			Order = 50)]
-		[CultureSpecific]
-		public virtual LinkItemCollection TopLeftMenu { get; set; }
-
-		[Searchable(false)]
-		[Display(
-			Name = "TopRightMenu",
-			Description = "The menu at top right",
-			GroupName = SystemTabNames.Content,
-			Order = 60)]
-		[CultureSpecific]
-		public virtual LinkItemCollection TopRightMenu { get; set; }
-
-
-		[Searchable(false)]
-		[Display(
-			Name = "Footer buttons",
-			GroupName = SystemTabNames.Content,
-			Order = 65)]
-		[AllowedTypes(new Type[] { typeof(ButtonWithHelpLinkBlock) })]
-		[CultureSpecific]
-		public virtual ContentArea FooterButtons { get; set; }
-
-
-		[Searchable(false)]
-		[Display(
-			Name = "Footer menu root folder",
-			Description = "The folder who's children will be in the footer menu",
-			GroupName = SystemTabNames.Content,
-			Order = 70)]
-		public virtual PageReference FooterMenuFolder { get; set; }
-
-		[Searchable(false)]
-		[Display(
-			Name = "Social Media",
-			Description = "Social Media Links",
-			GroupName = SystemTabNames.Content,
-			Order = 80)]
-		[AllowedTypes(new [] { typeof(SocialMediaLinkBlock) })]
-		[CultureSpecific]
-		public virtual ContentArea SocialMediaIcons { get; set; }
-
-		[Searchable(false)]
 		[CultureSpecific]
 		[Display(Name = "Delivery And Returns",
+            Description = "Text shown in popup",
 			GroupName=SystemTabNames.Content,
 			Order = 90)]
 		public virtual XhtmlString DeliveryAndReturns { get; set; }
@@ -202,27 +156,12 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 		public virtual XhtmlString FileNotFoundPageText { get; set; }
 
 		[Searchable(false)]
-		[Display(Name = "Import catalog last success time",
-			GroupName = SystemTabNames.Settings,
-			Order = 170)]
-		public virtual DateTime ImportCatalogLastSuccessTime { get; set; }
-
-		[Searchable(false)]
-		[Display(Name = "The Logo to use on the site",
-			GroupName = SystemTabNames.Settings,
-			Order = 180)]
-		[CultureSpecific]
-		[UIHint(UIHint.Image)]
-		public virtual ContentReference LogoImage { get; set; }
-
-		[Searchable(false)]
         [CultureSpecific]
 		[Display(Name = "Javascripts here will be added to header tag",
 			GroupName = SystemTabNames.Settings,
 			Order = 200)]
         [UIHint(UIHint.Textarea)]
 		public virtual string HeaderScripts { get; set; }
-
 		
 	}
 }

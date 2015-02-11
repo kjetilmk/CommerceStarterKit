@@ -749,7 +749,7 @@
 			</sliderblock>
 			<socialmedialinkblock>
 				<name>Social media block</name>
-				<description>Used in the footer to show icon and link to social media</description>
+				<description>Used in the footer to show icon and link to social media (Facebook, Twitter, Instagram, YouTube)</description>
 				<properties>
 					<title>
 						<caption>Title</caption>
@@ -759,12 +759,13 @@
 					</link>
 					<cssclass>
 						<caption>CSS class to specify image</caption>
+						<description>Supported classes: facebook, twitter, instagram, youtube</description>
 					</cssclass>
 				</properties>
 			</socialmedialinkblock>
 			<buttonwithhelplinkblock>
-				<name>Button with extra ? button</name>
-				<description>Used in the footer to control the buttons in the footer</description>
+				<name>Footer button with help link</name>
+				<description>A regular link button with an addional help button to show a modal help dialog.</description>
 				<properties>
 					<text>
 						<caption>Text on the button</caption>

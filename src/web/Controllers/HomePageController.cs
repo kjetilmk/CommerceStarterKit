@@ -25,12 +25,12 @@ using OxxCommerceStarterKit.Web.Models.ViewModels;
 
 namespace OxxCommerceStarterKit.Web.Controllers
 {
-    [TemplateDescriptor(Inherited = true)]
-    public class DefaultPageController : PageControllerBase<PageData>
+    [TemplateDescriptor()]
+    public class HomePageController : PageControllerBase<HomePage>
     {
-		private readonly IContentLoader _contentLoader;        
+		private readonly IContentLoader _contentLoader;
 
-        public DefaultPageController(IContentLoader contentLoader )
+        public HomePageController(IContentLoader contentLoader)
         {            
 			_contentLoader = contentLoader;		    
         }
@@ -44,28 +44,11 @@ namespace OxxCommerceStarterKit.Web.Controllers
             }
 
             var model = CreatePageViewModel(currentPage);
+            var editHints = ViewData.GetEditHints<Chrome, HomePage>();
+            editHints.AddConnection(c => c.GlobalFooterContent, p => p.GlobalFooterContent);
 
             return View(virtualPath, model);
         }
 
-		[HttpPost]
-		public ActionResult Get(int reference, HomePage currentPage)
-		{
-			currentPage = currentPage ?? _contentLoader.Get<HomePage>(ContentReference.StartPage);
-
-			IContent page = _contentLoader.Get<IContent>(new ContentReference(reference));
-            
-            // Filter away stuff you're not allowed to see
-            FilterContentForVisitor filter = new FilterContentForVisitor();
-		    if(filter.ShouldFilter(page) == true)
-                return new HttpNotFoundResult();
-
-			if (page is ArticlePage)
-			{
-				var model = new PageViewModel<ArticlePage>((ArticlePage)page);
-				return View("~/Views/ArticlePage/Index.cshtml", model);
-			}
-            return new HttpNotFoundResult();
-		}
     }
 }

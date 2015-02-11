@@ -438,7 +438,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Shared\_TopMenu.cshtml" />
-    <Content Include="Views\Shared\_FooterMenu.cshtml" />
     <Content Include="Views\FashionStoreSubLandingNodeContent\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\Blocks\SocialMediaLinkBlock.cshtml" />
@@ -1096,6 +1095,7 @@
     <Compile Include="Controllers\BasePartialContentController.cs" />
     <Compile Include="Business\Payment\DibsPaymentProcessingResult.cs" />
     <Compile Include="Business\Payment\DibsPaymentProcessor.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\GenericPaymentController.cs" />
     <Compile Include="Controllers\FashionProductPartialController.cs" />
     <Compile Include="Business\ClientTracking\GoogleAnalyticsTracker.cs" />
@@ -1189,7 +1189,6 @@
     <Compile Include="Models\Blocks\TwoColumnsBlock.cs" />
     <Compile Include="Models\Blocks\ViddlerBlock.cs" />
     <Compile Include="Models\Catalog\IFacetBrand.cs" />
-    <Compile Include="Models\Catalog\IInfoModelNumber.cs" />
     <Compile Include="Models\Catalog\WineSKUContent.cs" />
     <Compile Include="Models\Catalog\WineStoreLandingNodeContent.cs" />
     <Compile Include="Models\FindModels\FashionVariant.cs" />

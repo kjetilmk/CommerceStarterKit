@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Catalog.DataAnnotations;
 using EPiServer.Core;
+using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.ObjectEditing;
@@ -38,22 +39,21 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
         Description = "A variation with information about wine.",
         GroupName = "Wine"
         )]
-    public class WineSKUContent : VariationContent, IFacetBrand, IInfoModelNumber, IIndexableContent, IProductListViewModelInitializer
+    public class WineSKUContent : VariationContent, IFacetBrand, IIndexableContent, IProductListViewModelInitializer
     {
 
         [Display(Name = "Recommendation Boost",
             Description = "An integer that can be used to boost the visibility of products in recommendation lists.",
-            Order = 5)]
+            Order = 5,
+            GroupName = SystemTabNames.Settings)]
         public virtual int RecommendBoost { get; set; }
 
-        [Display(Name = "Show in product list",
+        [Display(Name = "Show in lists",
             Description = "Default is true, set to false to hide product from lists. The product can still be linked to and found through search.",
-           Order = 7)]
+            Order = 100,
+            GroupName = SystemTabNames.PageHeader)]
         [DefaultValue(true)]
         public virtual bool ShowInList { get; set; }
-
-        [Display(Name = "Model Number", Order = 9)]
-        public virtual string Info_ModelNumber { get; set; }
 
         // Multi lang
         [Display(Name = "Description", Order = 10)]
@@ -149,6 +149,14 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
         [Display(Name = "Size in ml", Order = 56)]
         [DefaultValue(750)]
         public virtual int SizeML { get; set; }
+
+        [Display(Name = "Additional Content", 
+                Order = 100,
+                Description = "Additional free form content, like videos, banners etc.")]
+        [CultureSpecific]
+        public virtual ContentArea AdditionalContent { get; set; }
+
+        // --- End of property definitions
 
         public FindProduct GetFindProduct(IMarket market)
         {

@@ -9,5 +9,6 @@ namespace OxxCommerceStarterKit.Web.Business
     public interface ISiteSettingsProvider
     {
         SettingsBlock GetSettings();
+        HomePage GetStartPage();
     }
 }
