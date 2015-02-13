@@ -1070,7 +1070,6 @@
     <Compile Include="Business\CurrentMarketFromStartPage.cs" />
     <Compile Include="Business\CurrentMarketProfile.cs" />
     <Compile Include="Business\Delivery\DeliveryLocation.cs" />
-    <Compile Include="Business\Facets\IFIlterDescriptor.cs" />
     <Compile Include="Business\Initialization\CatalogEventListener.cs" />
     <Compile Include="Business\Initialization\CommerceCachePrimer.cs" />
     <Compile Include="Business\FindCatalogIndexingChangeNotificationProcessor.cs" />

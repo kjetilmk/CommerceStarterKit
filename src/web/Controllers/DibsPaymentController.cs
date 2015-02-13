@@ -62,8 +62,7 @@ namespace OxxCommerceStarterKit.Web.Controllers
 
 
             if (ch.IsEmpty && !PageEditing.PageIsInEditMode)
-            {
-                _logger.Warning("Cart is empty. Redirecting to start page.");
+            {                
                 return View("Error/_EmptyCartError");
             }
 

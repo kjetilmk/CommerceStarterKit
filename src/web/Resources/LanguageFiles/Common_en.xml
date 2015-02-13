@@ -3,7 +3,7 @@
 	<language name="English" id="en">
 		<common>
       <linktext>
-        <startpage>Navigate to start page</startpage>
+        <startpage>To Home</startpage>
       </linktext>
 			<validation>
 				<required>{0} is required</required>

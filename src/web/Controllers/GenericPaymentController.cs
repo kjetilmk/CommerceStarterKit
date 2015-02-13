@@ -16,6 +16,7 @@ using System.Web.Mvc;
 using AuthorizeNet.APICore;
 using EPiServer;
 using EPiServer.Core;
+using EPiServer.Editor;
 using EPiServer.Logging;
 using EPiServer.Web.Routing;
 using Mediachase.Commerce;
@@ -65,9 +66,8 @@ namespace OxxCommerceStarterKit.Web.Controllers
         {
             CartHelper ch = new CartHelper(Cart.DefaultName);
 
-            if (ch.IsEmpty)
-            {
-                _logger.Warning("Cart is empty. Redirecting to start page.");
+            if (ch.IsEmpty && !PageEditing.PageIsInEditMode)
+            {                
                 return View("Error/_EmptyCartError");
             }
 
@@ -101,6 +101,12 @@ namespace OxxCommerceStarterKit.Web.Controllers
             var receiptPage = _contentRepository.Get<ReceiptPage>(_siteConfiguration.GetSettings().ReceiptPage);
 
             var cartHelper = new CartHelper(Cart.DefaultName);
+
+            if (cartHelper.IsEmpty && !PageEditing.PageIsInEditMode)
+            {                
+                return View("Error/_EmptyCartError");
+            }
+
             string message = "";
             OrderViewModel orderViewModel = null;
 

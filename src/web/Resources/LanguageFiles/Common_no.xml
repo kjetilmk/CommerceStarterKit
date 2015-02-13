@@ -3,7 +3,7 @@
 	<language name="Norwegian" id="no">
 		<common>
       <linktext>
-        <startpage>Tilbake til start</startpage>
+        <startpage>Til startsiden</startpage>
       </linktext>
 			<validation>
 				<required>{0} må fylles ut</required>
