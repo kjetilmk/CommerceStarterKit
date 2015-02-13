@@ -1,0 +1,12 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using OxxCommerceStarterKit.Web.Helpers
+<h1>@Html.Translate("/common/cart/empty")</h1>
+
+
+<img src="~/Content/Images/empty-shopping-cart.png"/>
+
+<div>
+    @Html.ContentLink(@Html.Translate("/common/linktext/startpage"), ContentReference.StartPage)
+    
+</div>

@@ -11,11 +11,13 @@ Copyright (C) 2013-2014 BV Network AS
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Web.Mvc;
 using AuthorizeNet.APICore;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Logging;
+using EPiServer.Web.Routing;
 using Mediachase.Commerce;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Orders.Managers;
@@ -46,14 +48,16 @@ namespace OxxCommerceStarterKit.Web.Controllers
         private readonly ISiteSettingsProvider _siteConfiguration;
         private readonly IPaymentCompleteHandler _paymentCompleteHandler;
         private readonly ICurrentMarket _currentMarket;
+        private readonly ILogger _logger;
 
-        public GenericPaymentController(IContentRepository contentRepository, IOrderService orderService, IPaymentCompleteHandler paymentCompleteHandler, ISiteSettingsProvider siteConfiguration, ICurrentMarket currentMarket)
+        public GenericPaymentController(IContentRepository contentRepository, IOrderService orderService, IPaymentCompleteHandler paymentCompleteHandler, ISiteSettingsProvider siteConfiguration, ICurrentMarket currentMarket, ILogger logger)
         {
             _contentRepository = contentRepository;
             _orderService = orderService;
             _siteConfiguration = siteConfiguration;
             _paymentCompleteHandler = paymentCompleteHandler;
             _currentMarket = currentMarket;
+            _logger = logger;
         }
 
         [RequireSSL]
@@ -61,7 +65,11 @@ namespace OxxCommerceStarterKit.Web.Controllers
         {
             CartHelper ch = new CartHelper(Cart.DefaultName);
 
-            ch.Cart.AcceptChanges();
+            if (ch.IsEmpty)
+            {
+                _logger.Warning("Cart is empty. Redirecting to start page.");
+                return View("Error/_EmptyCartError");
+            }
 
             var orderInfo = new OrderInfo()
             {

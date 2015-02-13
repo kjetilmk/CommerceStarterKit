@@ -2,6 +2,9 @@
 <languages>
 	<language name="Norwegian" id="no">
 		<common>
+      <linktext>
+        <startpage>Tilbake til start</startpage>
+      </linktext>
 			<validation>
 				<required>{0} må fylles ut</required>
 				<compare>{0} og {1} er ulike.</compare>
@@ -75,6 +78,7 @@
 				<quantity_one>stk</quantity_one>
 				<quantity_many>stk</quantity_many>
 				<quantity_suffix>stk</quantity_suffix>
+        <empty>Du har ingen varer i handlekurven</empty>
 				<coupon_codes>
 					<add_label>Rabattkode:</add_label>
 					<add>Legg til</add>

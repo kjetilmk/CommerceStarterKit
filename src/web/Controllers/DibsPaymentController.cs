@@ -12,7 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using EPiServer;
+using EPiServer.Core;
+using EPiServer.Editor;
 using EPiServer.Logging;
+using EPiServer.Web.Routing;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Website.Helpers;
 using OxxCommerceStarterKit.Core.Extensions;
@@ -37,14 +40,19 @@ namespace OxxCommerceStarterKit.Web.Controllers
 	    private readonly IIdentityProvider _identityProvider;
 	    private readonly IReceiptViewModelBuilder _receiptViewModelBuilder;
 	    private readonly IGoogleAnalyticsTracker _googleAnalyticsTracker;
+	    private readonly ILogger _logger;	    
 
-	    public DibsPaymentController(IIdentityProvider identityProvider, IContentRepository contentRepository, IDibsPaymentProcessor paymentProcessor, IReceiptViewModelBuilder receiptViewModelBuilder, IGoogleAnalyticsTracker googleAnalyticsTracker)
+	    public DibsPaymentController(IIdentityProvider identityProvider, 
+            IContentRepository contentRepository, 
+            IDibsPaymentProcessor paymentProcessor, IReceiptViewModelBuilder receiptViewModelBuilder, 
+            IGoogleAnalyticsTracker googleAnalyticsTracker, ILogger logger)
 		{
 		    _identityProvider = identityProvider;
 			_contentRepository = contentRepository;
 		    _paymentProcessor = paymentProcessor;
 		    _receiptViewModelBuilder = receiptViewModelBuilder;
 	        _googleAnalyticsTracker = googleAnalyticsTracker;
+	        _logger = logger;	        
 		}
 
 		[RequireSSL]
@@ -52,7 +60,12 @@ namespace OxxCommerceStarterKit.Web.Controllers
 		{
 			CartHelper ch = new CartHelper(Cart.DefaultName);
 
-			ch.Cart.AcceptChanges();
+
+            if (ch.IsEmpty && !PageEditing.PageIsInEditMode)
+            {
+                _logger.Warning("Cart is empty. Redirecting to start page.");
+                return View("Error/_EmptyCartError");
+            }
 
 			var orderInfo = new OrderInfo()
 			{
