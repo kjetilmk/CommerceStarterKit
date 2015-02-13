@@ -12,6 +12,13 @@ namespace OxxCommerceStarterKit.Web.Services.Email
 {
     public class EmailDispatcher : IEmailDispatcher
     {
+        private readonly ILogger _logger;
+
+        public EmailDispatcher(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public SendEmailResponse SendEmail(Postal.Email email)
         {
             var log = LogManager.GetLogger();
@@ -50,10 +57,19 @@ namespace OxxCommerceStarterKit.Web.Services.Email
                 // send email with default smtp client. (the same way as Postal)
                 using (var smtpClient = new SmtpClient())
                 {
-                    smtpClient.Send(message);
+                    try
+                    {
+                        smtpClient.Send(message);
+                        output.Success = true;
+                    }
+                    catch (SmtpException exception)
+                    {
+                        _logger.Error("Exception: {0}, inner message {1}",exception.Message,(exception.InnerException!=null) ? exception.InnerException.Message : string.Empty);
+                        output.Success = false;
+                        output.Exception = exception;
+                    }
                 }
-            }
-            output.Success = true;
+            }            
 
 #if !DEBUG
 			}

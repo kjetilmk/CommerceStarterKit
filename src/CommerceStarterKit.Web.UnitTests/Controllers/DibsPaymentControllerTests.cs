@@ -5,6 +5,9 @@ using System.Threading;
 using System.Web.Mvc;
 using EPiServer;
 using EPiServer.Core;
+using EPiServer.Logging;
+using EPiServer.Web;
+using EPiServer.Web.Routing;
 using Mediachase.Commerce.Engine.Caching;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Shared;
@@ -36,6 +39,8 @@ namespace CommerceStarterKit.Web.Controllers
         private Mock<IIdentityProvider> _identityProvider;
         private SettingsBlock _settingsBlock;
         private Mock<IGoogleAnalyticsTracker> _googleAnalyticsTracker;
+        private Mock<ILogger> _logger;
+        private Mock<IPermanentLinkMapper> _permanentLinkMapper;
 
         static DibsPaymentControllerTests()
         {
@@ -75,8 +80,10 @@ namespace CommerceStarterKit.Web.Controllers
             _identityProvider = new Mock<IIdentityProvider>();
             _receiptViewModelBuilderMock = new Mock<IReceiptViewModelBuilder>();
             _googleAnalyticsTracker = new Mock<IGoogleAnalyticsTracker>();
+            _logger = new Mock<ILogger>();
+            _permanentLinkMapper = new Mock<IPermanentLinkMapper>();
 
-            _sut = new DibsPaymentController(_identityProvider.Object, _contentRepositoryMock.Object, _dibsPaymentProcessorMock.Object, _receiptViewModelBuilderMock.Object, _googleAnalyticsTracker.Object);
+            _sut = new DibsPaymentController(_identityProvider.Object, _contentRepositoryMock.Object, _dibsPaymentProcessorMock.Object, _receiptViewModelBuilderMock.Object, _googleAnalyticsTracker.Object, _logger.Object);
         }
 
         private void SetUpContentRepository()

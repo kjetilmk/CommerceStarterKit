@@ -77,6 +77,7 @@
     <Content Include="Content\css\print.css" />
     <Content Include="Content\css\print.min.css" />
     <Content Include="Content\Images\commerce-shop-logo.png" />
+    <Content Include="Content\Images\empty-shopping-cart.png" />
     <Content Include="Content\Images\paymentMethods\pay by credit card.png" />
     <Content Include="Content\Images\paymentMethods\telefonbetaling.png" />
     <Content Include="Content\Images\paymentMethods\pay by phone.png" />
@@ -322,7 +323,9 @@
     <Content Include="Content\Images\up-arrow.png" />
     <Content Include="Content\Images\video-starter.png" />
     <Content Include="Content\ink\ink.css" />
-    <Content Include="EPiServerLog.config" />
+    <Content Include="EPiServerLog.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="global.asax" />
     <Content Include="IndexingService\IndexingService.svc" />
@@ -556,6 +559,7 @@
     <Content Include="Views\WineProductSearchBlock\FindError.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\VideoFile.cshtml" />
     <Content Include="Views\GenericPayment\Index.cshtml" />
+    <Content Include="Views\Shared\Error\_EmptyCartError.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

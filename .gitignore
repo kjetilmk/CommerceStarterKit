@@ -44,3 +44,4 @@ packages/*
 # We do not distribute the databases
 db/*
 !db/readme.md
+CommerceStarterKit.sln.ide/
