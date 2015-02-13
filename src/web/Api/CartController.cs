@@ -11,6 +11,7 @@ Copyright (C) 2013-2014 BV Network AS
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using EPiServer.Logging;
 using EPiServer.ServiceLocation;
 using Mediachase.Commerce.Website.Helpers;
 using OxxCommerceStarterKit.Core.Objects;
@@ -21,7 +22,7 @@ namespace OxxCommerceStarterKit.Web.Api
 	public class CartController : BaseApiController
 	{
 
-
+	    private Injected<ILogger> _logger; 
 		private Injected<ICartService> Cart;
 
 		[HttpGet]
@@ -60,8 +61,9 @@ namespace OxxCommerceStarterKit.Web.Api
                 var result = Cart.Service.ValidateCart(cart);
                 return GetFullCartResult(cart, result.Message);
             }
-            catch
+            catch (Exception e)
             {
+                _logger.Service.Error("Failed to get cart", e);
                 Cart.Service.UpdateShipping(cart);
                 return new CartResult() {Success = false};
             }            

@@ -200,14 +200,22 @@ namespace OxxCommerceStarterKit.Core.Services
 
 		public CartActionResult ValidateCart(string name)
 		{
-			var cart = new CartHelper(name).Cart;
-			string message = RunWorkflowAndReturnFormattedMessage(cart, OrderGroupWorkflowManager.CartValidateWorkflowName);
-			cart.AcceptChanges();
-			return new CartActionResult()
-			{
-				Success = true,
-				Message = message
-			};
+            CartHelper ch = new CartHelper(name);
+            CartActionResult actionResult = new CartActionResult()
+            {
+                Success = false,
+                Message = ""
+            };
+
+            if (ch.IsEmpty == false)
+		    {
+		        var cart = ch.Cart;
+
+                actionResult.Message = RunWorkflowAndReturnFormattedMessage(cart, OrderGroupWorkflowManager.CartValidateWorkflowName);
+		        cart.AcceptChanges();
+		        actionResult.Success = true;
+		    }
+            return actionResult;
 		}
 
 		public CartActionResult AddDiscountCode(string name, string code)
