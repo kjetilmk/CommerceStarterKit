@@ -2696,12 +2696,15 @@
     <Content Include="Apps\Order\GridTemplates\ListPriceTemplate.ascx" />
     <Content Include="Apps\Order\GridTemplates\OrderLinkFromPaymentPlan.ascx" />
     <Content Include="Apps\Order\GridTemplates\OrderLinkTemplate.ascx" />
+    <Content Include="Apps\Order\GridTemplates\OrderNoteTemplate.ascx" />
     <Content Include="Apps\Order\GridTemplates\OrderStatusTemplate.ascx" />
     <Content Include="Apps\Order\GridTemplates\OrderTotalAmountTemplate.ascx" />
     <Content Include="Apps\Order\GridTemplates\PaymentAmountTemplate.ascx" />
     <Content Include="Apps\Order\GridTemplates\PictureTemplate.ascx" />
     <Content Include="Apps\Order\GridTemplates\PlacedPriceTemplate.ascx" />
     <Content Include="Apps\Order\GridTemplates\ReturnFormLineItemDiscountTemplate.ascx" />
+    <Content Include="Apps\Order\GridTemplates\ShippingMethodTemplate.ascx" />
+    <Content Include="Apps\Order\GridTemplates\WarehouseTemplate.ascx" />
     <Content Include="Apps\Order\images\Address-Add.png" />
     <Content Include="Apps\Order\images\Calculator.png" />
     <Content Include="Apps\Order\images\Information-2.png" />
@@ -3665,6 +3668,9 @@
     <Reference Include="ComponentArt.Web.UI, Version=2012.1.1016.35, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\EPiServer.CommerceManager.8.7.1\lib\net45\ComponentArt.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiCode.CommerceManager.Enhancements">
+      <HintPath>..\..\packages\EPiCode.CommerceManager.Enhancements.0.1.26.0\lib\EPiCode.CommerceManager.Enhancements.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer, Version=7.19.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
