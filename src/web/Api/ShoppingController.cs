@@ -12,17 +12,24 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web.Http;
+using System.Web.UI.WebControls;
 using EPiServer.Find;
 using EPiServer.Find.Api.Facets;
+using EPiServer.Find.Api.Querying;
+using EPiServer.Find.Api.Querying.Filters;
 using EPiServer.Find.Framework;
 using EPiServer.Find.Framework.Statistics;
+using EPiServer.Find.Helpers;
+using EPiServer.Logging;
 using OxxCommerceStarterKit.Web.Models.FindModels;
 
 namespace OxxCommerceStarterKit.Web.Api
 {
     public class ShoppingController : BaseApiController
     {
+        private ILogger _log = LogManager.GetLogger();
         public class FacetViewModel
         {
             public string Name { get; set; }
@@ -110,13 +117,15 @@ namespace OxxCommerceStarterKit.Web.Api
                 }
 
                 // selected region
-                if (productSearchData.ProductData.SelectedRegionFacets != null &&
-                    productSearchData.ProductData.SelectedRegionFacets.Any())
-                {
-                    query = query.Filter(x => GetRegionFilter(productSearchData.ProductData.SelectedRegionFacets));
-                }
+                AddStringListFilter(productSearchData.ProductData.SelectedRegionFacets, ref query, "Region");
+                //if (productSearchData.ProductData.SelectedRegionFacets != null &&
+                //    productSearchData.ProductData.SelectedRegionFacets.Any())
+                //{
+                //    query = query.Filter(x => GetRegionFilter(productSearchData.ProductData.SelectedRegionFacets));
+                //}
 
                 // selected grapes
+                //AddStringListFilter(productSearchData.ProductData.SelectedGrapeFacets, ref query, "GrapeMixList");
                 if (productSearchData.ProductData.SelectedGrapeFacets != null &&
                     productSearchData.ProductData.SelectedGrapeFacets.Any())
                 {
@@ -124,11 +133,7 @@ namespace OxxCommerceStarterKit.Web.Api
                 }
 
                 //selected countries
-                if (productSearchData.ProductData.SelectedCountryFacets != null &&
-                    productSearchData.ProductData.SelectedCountryFacets.Any())
-                {
-                    query = query.Filter(x => GetCountryFilter(productSearchData.ProductData.SelectedCountryFacets));
-                }
+                AddStringListFilter(productSearchData.ProductData.SelectedCountryFacets, ref query, "Country");
 
                 // execute search
                 query = query.Skip((productSearchData.Page - 1)*productSearchData.PageSize)
@@ -181,6 +186,8 @@ namespace OxxCommerceStarterKit.Web.Api
                 // common filters
                 facetsQuery = ApplyCommonFilters(productSearchData, facetsQuery, language);
 
+                
+
                 // execute search
                 var facetsResult = facetsQuery
                     .Filter(x => GetCategoryFilter(productSearchData.ProductData.SelectedProductCategories))
@@ -188,9 +195,12 @@ namespace OxxCommerceStarterKit.Web.Api
                     .TermsFacetFor(x => x.Color, r => r.Size = 50)
                     .TermsFacetFor(x => x.Fit, r => r.Size = 50)
                     .TermsFacetFor(x => x.SizesList, r => r.Size = 200)
-                    .TermsFacetFor(x => x.Region, r => r.Size = 50)
+                    //.TermsFacetFor(x => x.Region, r => r.Size = 50)
                     .TermsFacetFor(x => x.GrapeMixList, r => r.Size = 50)
-                    .TermsFacetFor(x => x.Country, r => r.Size = 50)
+                    //.TermsFacetFor(x => x.Country, r => r.Size = 50)
+                    .TermsFacetFor("Region", 50)
+                    // .TermsFacetFor("GrapeMixList", 50) - this is a string list
+                    .TermsFacetFor("Country", 50)
                     .Take(0)
                     .StaticallyCacheFor(TimeSpan.FromMinutes(1))
                     .GetResult();
@@ -235,17 +245,29 @@ namespace OxxCommerceStarterKit.Web.Api
                 };
                 return result;
             }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException operationCanceledException)
             {
+                _log.Error("Failed to perform search", operationCanceledException);
                 return null;
             }
-            catch (ServiceException)
+            catch (ServiceException serviceException)
             {
+                _log.Error("Failed to perform search", serviceException);
                 return null;
             }
         }
 
-		private static ITypeSearch<FindProduct> ApplyCommonFilters(ProductSearchData productSearchData, ITypeSearch<FindProduct> query, string language)
+        protected void AddStringListFilter(List<string> stringFieldValues, ref ITypeSearch<FindProduct> query, string fieldName)
+        {
+            if (stringFieldValues != null && stringFieldValues.Any())
+            {
+                // First attempt at moving away from expressions, making this
+                // implementation extensible and pluggable
+                query = query.Filter(GetOrFilterForStringList(stringFieldValues, SearchClient.Instance, fieldName));
+            }
+        }
+
+        private static ITypeSearch<FindProduct> ApplyCommonFilters(ProductSearchData productSearchData, ITypeSearch<FindProduct> query, string language)
 		{
 		    return query.Filter(x => x.Language.Match(language))
 		        .Filter(x => x.ShowInList.Match(true));
@@ -488,20 +510,56 @@ namespace OxxCommerceStarterKit.Web.Api
             var filter = SearchClient.Instance.BuildFilter<FindProduct>();
             return fitList.Aggregate(filter, (current, fit) => current.Or(x => x.Fit.Match(fit)));
         }
-        private FilterBuilder<FindProduct> GetRegionFilter(List<string> regionList)
-        {
-            var filter = SearchClient.Instance.BuildFilter<FindProduct>();
-            return regionList.Aggregate(filter, (current, region) => current.Or(x => x.Region.Match(region)));
-        }
+        //private FilterBuilder<FindProduct> GetRegionFilter(List<string> regionList)
+        //{
+        //    var filter = SearchClient.Instance.BuildFilter<FindProduct>();
+        //    return regionList.Aggregate(filter, (current, region) => current.Or(x => x.Region.Match(region)));
+        //}
         private FilterBuilder<FindProduct> GetGrapeFilter(List<string> grapeList)
         {
             var filter = SearchClient.Instance.BuildFilter<FindProduct>();
             return grapeList.Aggregate(filter, (current, grape) => current.Or(x => x.GrapeMixList.Match(grape)));
         }
-        private FilterBuilder<FindProduct> GetCountryFilter(List<string> countryList)
+        private FilterBuilder<FindProduct> GetOrFilterForStringList(List<string> fieldValues, IClient client, string fieldName)
         {
-            var filter = SearchClient.Instance.BuildFilter<FindProduct>();
-            return countryList.Aggregate(filter, (current, country) => current.Or(x => x.Country.Match(country)));
+            // Appends type convention to field name (like "$$string")
+            string fullFieldName = client.GetFullFieldName(fieldName);
+
+            List<Filter> filters = new List<Filter>();
+            foreach (string s in fieldValues)
+            {
+                filters.Add(new TermFilter(fullFieldName, s));
+            }
+                
+            OrFilter orFilter = new OrFilter(filters);
+            FilterBuilder<FindProduct> filterBuilder = new FilterBuilder<FindProduct>(client, orFilter);
+            return filterBuilder;
+        }
+    }
+
+    public static class SearchExtensions
+    {
+        public static ITypeSearch<TSource> TermsFacetFor<TSource>(this ITypeSearch<TSource> search, string name, int size)
+        {
+            return search.TermsFacetFor(name, FacetRequestAction(search.Client, name, size));
+
+        }
+
+        private static Action<TermsFacetRequest> FacetRequestAction(IClient searchClient, string fieldName, int size)
+        {
+
+            string fullFieldName = GetFullFieldName(searchClient, fieldName);
+
+            return (x =>
+            {
+                x.Field = fullFieldName;
+                x.Size = size;
+            });
+        }
+
+        public static string GetFullFieldName(this IClient searchClient, string fieldName)
+        {
+            return fieldName + searchClient.Conventions.FieldNameConvention.GetFieldName(Expression.Variable(typeof(string), fieldName));
         }
 
     }
