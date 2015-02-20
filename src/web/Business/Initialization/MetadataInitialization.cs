@@ -82,8 +82,7 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
             string text1 = name;
             string text2 = name;
             string text3 = "Imported";
-            int num = 26; //TODO: Get Payment Class Id
-            MetaClass parentMetaClass = MetaClass.Load(mdContext, num);
+            MetaClass parentMetaClass = MetaClass.Load(mdContext, "OrderFormPayment");
 
             MetaClass metaClass = MetaClass.Load(mdContext, name);
 
