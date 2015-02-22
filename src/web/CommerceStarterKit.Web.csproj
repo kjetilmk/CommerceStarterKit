@@ -639,9 +639,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
     </Reference>
-    <Reference Include="EPiCode.Commerce.RestService, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EPiCode.Commerce.RestApi, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EPiCode.Commerce.RestApi.1.0.3.0\lib\net45\EPiCode.Commerce.RestService.dll</HintPath>
+      <HintPath>..\..\packages\EPiCode.Commerce.RestApi.1.1.12\lib\net45\EPiCode.Commerce.RestApi.dll</HintPath>
     </Reference>
     <Reference Include="EPiCode.GoogleAnalytics.UniversalTracking, Version=1.0.5428.38538, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
