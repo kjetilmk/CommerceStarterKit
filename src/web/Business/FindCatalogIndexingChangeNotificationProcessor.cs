@@ -43,7 +43,8 @@ namespace OxxCommerceStarterKit.Web.Business
         private static readonly Guid _processorId = new Guid("ea403de2-c91d-4675-a82e-ac087ea368de");
         private static readonly IChangeListener _changeListener = new CatalogEntryChangeListener();
         private static readonly TimeSpan _retryInterval = TimeSpan.FromSeconds(30);
-        private static readonly int _maxBatchSize = 5;
+        private const int _maxBatchSize = 30;
+        private DateTime _lastLogTime = DateTime.Now;
 
         public static Guid ProcessorId
         {
@@ -64,7 +65,18 @@ namespace OxxCommerceStarterKit.Web.Business
         {
             get
             {
-                _log.Debug("MaxBatchSize: {0}", _maxBatchSize);
+                // By default, it logs every 5 sec. We'll do this
+                // once a minute while in debug mode, just to keep
+                // the logs smaller.
+                if(_log.IsDebugEnabled())
+                {
+                    TimeSpan span = _lastLogTime - DateTime.Now;
+                    if(span.TotalSeconds > 60)
+                    {
+                        _log.Debug("MaxBatchSize: {0}", _maxBatchSize);
+                        _lastLogTime = DateTime.Now;
+                    }
+                }
                 return _maxBatchSize;
             }
         }
@@ -103,13 +115,14 @@ namespace OxxCommerceStarterKit.Web.Business
         }
 
 
-        public bool ProcessItems(IEnumerable<string> items, CancellationToken cancellationToken)
+        public bool ProcessItems(IEnumerable<string> queuedStrings, CancellationToken cancellationToken)
         {
             _log.Debug("ProcessItems called");
 
-            foreach (string item in items)
+            foreach (string queuedString in queuedStrings)
             {
-                _log.Debug("Process: {0}", item);
+                CatalogEntryChange change = new CatalogEntryChange(queuedString);
+                _log.Debug("Process Items - Code: {0}, Entry ID: {1}", change.CatalogEntryCode, change.CatalogEntryId);
             }
 
             var result = true;
