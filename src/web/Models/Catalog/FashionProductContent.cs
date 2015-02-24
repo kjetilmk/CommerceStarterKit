@@ -106,6 +106,7 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
 
             var findProduct = new FindProduct(this, language);
 
+            findProduct.Description = Description;
             findProduct.Color = FacetColor == null ? new List<string>() : FacetColor.Split(',').ToList();
             findProduct.DescriptiveColor = DescriptiveColor;
             findProduct.Sizes =

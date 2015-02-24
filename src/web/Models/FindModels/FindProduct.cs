@@ -33,6 +33,7 @@ namespace OxxCommerceStarterKit.Web.Models.FindModels
         {
             IndexId = entryContentBase.ContentLink.ID + "_" + language;
             Id = entryContentBase.ContentLink.ID;
+            Code = entryContentBase.Code;
             Name = entryContentBase.Name;
             DisplayName = entryContentBase.DisplayName;
             Language = language;
@@ -49,6 +50,7 @@ namespace OxxCommerceStarterKit.Web.Models.FindModels
         [Id]
         public string IndexId { get; set; }
         public int Id { get; set; }
+        public string Code { get; set; }
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public string Language { get; set; }
@@ -80,7 +82,7 @@ namespace OxxCommerceStarterKit.Web.Models.FindModels
 		public int SalesCounter { get; set; }
 		public string CustomerClubPrice { get; set; }
         public string Brand { get; set; }
-        //Wine
+        //Wine facets
         public string Varieties { get; set; }
         public string Vintage { get; set; }
         public string Taste { get; set; }
