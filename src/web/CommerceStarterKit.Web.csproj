@@ -1088,6 +1088,7 @@
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\RequireSSLAttribute.cs" />
+    <Compile Include="Business\Search\FindProductSearchProvider.cs" />
     <Compile Include="Business\SiteConfiguration.cs" />
     <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\Tools.cs" />
