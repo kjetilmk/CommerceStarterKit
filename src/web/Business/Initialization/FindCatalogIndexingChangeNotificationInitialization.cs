@@ -17,6 +17,10 @@ using EPiServer.ServiceLocation;
 
 namespace OxxCommerceStarterKit.Web.Business.Initialization
 {
+    /// <summary>
+    /// NOTE! This is an example on how to handle catalog changes using the change notification system.
+    /// The site does not yet do actual Find indexing based on this.
+    /// </summary>
     [ModuleDependency(typeof(EPiServer.Commerce.Initialization.InitializationModule))]
     public class FindCatalogIndexingChangeNotificationInitialization : IConfigurableModule
     {
@@ -24,6 +28,9 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
 
         public void Initialize(InitializationEngine context)
         {
+            // We need to make sure the processor is in a
+            // valid state. Note! This could mean we start
+            // indexing 
             _log.Debug("Try start recovery.");
             var changeManager = ServiceLocator.Current.GetInstance<IChangeNotificationManager>();
             var processor = changeManager.GetProcessorInfo().SingleOrDefault(ep => ep.ProcessorId == FindCatalogIndexingChangeNotificationProcessor.ProcessorId);

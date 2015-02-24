@@ -85,10 +85,9 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
 			ContentIndexer.Instance.Conventions.ForInstancesOf<ImageFile>().ShouldIndex(x => false);
 			ContentIndexer.Instance.Conventions.ForInstancesOf<GenericFile>().ShouldIndex(x => false);
 
-			// hook up events
-			// maybe read this http://talk.alfnilsson.se/2013/03/17/simplifying-event-handling-in-episechess.crver-7-cms/
+			// hook up events for indexing
 			IContentEvents events = ServiceLocator.Current.GetInstance<IContentEvents>();
-            events.PublishedContent += (sender, e) => events_PublishedContent(sender, e);
+            events.PublishedContent += events_PublishedContent;
         }
 
 
