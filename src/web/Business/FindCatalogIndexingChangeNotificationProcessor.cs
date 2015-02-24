@@ -70,7 +70,7 @@ namespace OxxCommerceStarterKit.Web.Business
                 // the logs smaller.
                 if(_log.IsDebugEnabled())
                 {
-                    TimeSpan span = _lastLogTime - DateTime.Now;
+                    TimeSpan span = DateTime.Now - _lastLogTime;
                     if(span.TotalSeconds > 60)
                     {
                         _log.Debug("MaxBatchSize: {0}", _maxBatchSize);
