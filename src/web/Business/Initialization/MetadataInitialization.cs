@@ -26,12 +26,12 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
         {
             MetaDataContext mdContext = CatalogContext.MetaDataContext;
 
-            var itemSizeKeyField = CreateMetaField(mdContext,Constants.Metadata.Namespace.Order,Constants.Metadata.LineItem.Size, MetaDataType.ShortString, 255, true,false);
+            var itemSizeKeyField = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.LineItem.Size, MetaDataType.ShortString, 255, true, false);
             JoinField(mdContext, itemSizeKeyField, Constants.Metadata.LineItem.ClassName);
 
             var itemUrl = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order,
                 Constants.Metadata.LineItem.ImageUrl, MetaDataType.URL, 255, true, false);
-            JoinField(mdContext,itemUrl, Constants.Metadata.LineItem.ClassName);
+            JoinField(mdContext, itemUrl, Constants.Metadata.LineItem.ClassName);
 
             //var description = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order,
             //    Constants.Metadata.LineItem.Description, MetaDataType.LongString, 255, true, false);
@@ -53,26 +53,26 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
 
             var cardNumberMasked = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, "CardNumberMasked",
                 MetaDataType.ShortString, 255, true, false);
-            JoinField(mdContext,cardNumberMasked,dibsPaymentClass.Name);
+            JoinField(mdContext, cardNumberMasked, dibsPaymentClass.Name);
 
             var cardTypeName = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, "CardTypeName",
                MetaDataType.ShortString, 255, true, false);
             JoinField(mdContext, cardTypeName, dibsPaymentClass.Name);
 
             var backEndOrderNumber = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.PurchaseOrder.BackendOrderNumber, MetaDataType.LongString, Int32.MaxValue, true, false);
-			JoinField(mdContext, backEndOrderNumber, Constants.Metadata.PurchaseOrder.ClassName);
+            JoinField(mdContext, backEndOrderNumber, Constants.Metadata.PurchaseOrder.ClassName);
 
             var postNordTrackingId = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.PurchaseOrder.PostNordTrackingId, MetaDataType.LongString, Int32.MaxValue, true, false);
             JoinField(mdContext, postNordTrackingId, Constants.Metadata.PurchaseOrder.ClassName);
 
-			var deliveryServicePoint = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.Address.DeliveryServicePoint, MetaDataType.LongString, Int32.MaxValue, true, false);
-			JoinField(mdContext, deliveryServicePoint, Constants.Metadata.Address.ClassName);
+            var deliveryServicePoint = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.Address.DeliveryServicePoint, MetaDataType.LongString, Int32.MaxValue, true, false);
+            JoinField(mdContext, deliveryServicePoint, Constants.Metadata.Address.ClassName);
 
-			var customerClub = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.OrderForm.CustomerClub, MetaDataType.Boolean, 1, true, false);
-			JoinField(mdContext, customerClub, Constants.Metadata.OrderForm.ClassName);
+            var customerClub = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.OrderForm.CustomerClub, MetaDataType.Boolean, 1, true, false);
+            JoinField(mdContext, customerClub, Constants.Metadata.OrderForm.ClassName);
 
-			var selectedCategories = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.OrderForm.SelectedCategories, MetaDataType.ShortString, 8000, true, false);
-			JoinField(mdContext, selectedCategories, Constants.Metadata.OrderForm.ClassName);
+            var selectedCategories = CreateMetaField(mdContext, Constants.Metadata.Namespace.Order, Constants.Metadata.OrderForm.SelectedCategories, MetaDataType.ShortString, 8000, true, false);
+            JoinField(mdContext, selectedCategories, Constants.Metadata.OrderForm.ClassName);
 
         }
 
@@ -89,11 +89,11 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
             if (metaClass == null)
             {
                 metaClass = MetaClass.Create(mdContext, metaClassNameSpace + ".User", text1, text2,
-                    string.Format("{0}{1}{2}", (object) name, (object) "Ex_", (object) text1), parentMetaClass, false,
+                    string.Format("{0}{1}{2}", (object)name, (object)"Ex_", (object)text1), parentMetaClass, false,
                     text3);
             }
 
-            
+
             return metaClass;
         }
 
@@ -105,9 +105,9 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
         }
 
         private MetaField CreateMetaField(MetaDataContext mdContext, string metaDataNamespace, string name, MetaDataType type, int length, bool allowNulls, bool cultureSpecific)
-        {            
+        {
             var f = MetaField.Load(mdContext, name) ??
-                    MetaField.Create(mdContext,metaDataNamespace , name, name, string.Empty, type, length, allowNulls, cultureSpecific, false, false);
+                    MetaField.Create(mdContext, metaDataNamespace, name, name, string.Empty, type, length, allowNulls, cultureSpecific, false, false);
             return f;
         }
 
@@ -116,8 +116,8 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
             var cls = MetaClass.Load(mdContext, metaClassName);
 
             if (MetaFieldIsNotConnected(field, cls))
-            {                                  
-                cls.AddField(field);                
+            {
+                cls.AddField(field);
             }
         }
 
