@@ -52,7 +52,8 @@
 			    var provider = $resource("/" + language + "/api/cart/AddToCart/", {}, {
 					Add:{method:"POST", params:{}}
 				});
-				var response = provider.Add(product);
+			    var response = provider.Add(product);
+			    // console.log(response);
 				return response;
 			},
 

@@ -1,10 +1,7 @@
 ﻿@model ProductListViewModel
-
 @{
     Layout = null;
-}
-
-@{
+    var chrome = (Chrome)ViewBag.Chrome;
     var extraCssClass = ViewData["extraCssClass"] as string;
 }
 
@@ -14,7 +11,7 @@
         <a href="@Url.ContentUrl(Model.ContentLink)">
             @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
             {
-                <img class="img-responsive" src="@(@Model.ImageUrl)?preset=listmedium" />
+                <img class="img-responsive" id="anim-img-@Model.ContentLink" src="@(@Model.ImageUrl)?preset=listmedium" />
             }
             else
             {
@@ -22,16 +19,10 @@
             }
         </a>
     </div>
-    @if (!string.IsNullOrEmpty(Model.NewItemText))
-    {
-        <div class="newitemtext">@Model.NewItemText</div>
-    }
-    <h3>@Model.DisplayName</h3>
-    <div class="price">
-        <div class="price">@Model.PriceString</div>
-        @*@if (Model.Price != null)
-        {
-            @Html.Partial("_Price", Model.Price, new ViewDataDictionary(this.ViewData) { { "hideText", true } })
-        }*@
+    <div class="newitemtext">@Model.NewItemText &nbsp;</div>
+    <h3><a href="@Url.ContentUrl(Model.ContentLink)">@Model.DisplayName</a></h3>
+    <div class="price">&nbsp; @Model.PriceString &nbsp;</div>
+    <div class="add-to-cart-form" ng-controller="BuyController" ng-init="init('@chrome.Language','@Model.Code','@Model.DisplayName',1 ,'','', 'anim-img-@Model.ContentLink', '@Model.ContentType')">
+        <input type="button" class="btn btn-success btn-sm" value="@Html.Translate("/common/product/add_to_cart")" ng-click="addToCart(product)" />
     </div>
 </div>

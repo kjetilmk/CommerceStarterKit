@@ -1,17 +1,20 @@
 ﻿@model ProductListViewModel
-
 @{
+    var chrome = (Chrome)ViewBag.Chrome;
     Layout = null;
 }
 <div class="productRow col-sm-12">
     <div class="image img-responsive">
         <a href="@Model.ProductUrl">
-            <img class="img-responsive" src="@Model.ImageUrl"/>
+            <img id="anim-img-@Model.ContentLink" class="img-responsive" src="@Model.ImageUrl" />
         </a>
     </div>
     <div class="productInfo">
         <h3>@Model.DisplayName</h3>
         <p>@Model.Description</p>
         <div class="price">@Model.PriceString</div>
+        <div class="add-to-cart-form" ng-controller="BuyController" ng-init="init('@chrome.Language','@Model.Code','@Model.DisplayName',1 ,'','', 'anim-img-@Model.ContentLink')">
+            <input type="button" class="btn btn-success btn-sm" value="@Html.Translate("/common/product/add_to_cart")" ng-click="addToCart(product)" />
+        </div>
     </div>
 </div>

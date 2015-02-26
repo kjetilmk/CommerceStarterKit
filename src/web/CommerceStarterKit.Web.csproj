@@ -358,7 +358,9 @@
     <Content Include="Resources\LanguageFiles\_ReadMe.txt" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\app\Search\AutoCompleteContoller.js" />
+    <Content Include="Scripts\app\shopping\TrackingService.js" />
     <Content Include="Scripts\app\shopping\ArticleService.js" />
+    <Content Include="Scripts\app\shopping\BuyController.js" />
     <Content Include="Scripts\app\shopping\HandleCartService.js" />
     <Content Include="Scripts\app\shopping\CartController.js" />
     <Content Include="Scripts\app\shopping\SimilarProductsController.js" />

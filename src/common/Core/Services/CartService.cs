@@ -11,6 +11,9 @@ Copyright (C) 2013-2014 BV Network AS
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EPiServer;
+using EPiServer.Commerce.Catalog.ContentTypes;
+using EPiServer.Core;
 using EPiServer.Framework.Localization;
 using EPiServer.ServiceLocation;
 using Mediachase.Commerce.Catalog;
@@ -29,7 +32,16 @@ namespace OxxCommerceStarterKit.Core.Services
 {
 	public class CartService : ICartService
 	{
-		public CartActionResult AddToCart(LineItem lineItem)
+	    private readonly IContentLoader _contentLoader;
+	    private readonly ReferenceConverter _referenceConverter;
+
+	    public CartService(IContentLoader contentLoader, ReferenceConverter referenceConverter)
+	    {
+	        _contentLoader = contentLoader;
+	        _referenceConverter = referenceConverter;
+	    }
+
+	    public CartActionResult AddToCart(LineItem lineItem)
 		{
 			return AddToCart(Cart.DefaultName, lineItem);
 		}
@@ -49,13 +61,31 @@ namespace OxxCommerceStarterKit.Core.Services
 				lineItem.Quantity = 1;
 			}
 
-			var entry = CatalogContext.Current.GetCatalogEntry(lineItem.Code);
+			// Need entry for adding to cart
+            var entry = CatalogContext.Current.GetCatalogEntry(lineItem.Code);
 			ch.AddEntry(entry, lineItem.Quantity, false, new CartHelper[] { });
+
+            // Need content for easier access to more information
+		    ContentReference itemLink = _referenceConverter.GetContentLink(entry.CatalogEntryId,
+		        CatalogContentType.CatalogEntry, 0);
+		    EntryContentBase entryContent = _contentLoader.Get<EntryContentBase>(itemLink);
+
+            // Populate line item with as much as we can find
+            if(string.IsNullOrEmpty(lineItem.ImageUrl))
+            {
+                lineItem.ImageUrl = entryContent.GetDefaultImage();
+            }
+
+		    if (string.IsNullOrEmpty(lineItem.ArticleNumber))
+		    {
+		        lineItem.ArticleNumber = entry.ID;
+		    }
 
 			lineItem.Name = TryGetDisplayName(entry);
             //lineItem.IsInventoryAllocated = true; // Will this be enough?
 
 			AddCustomProperties(lineItem, ch.Cart);
+
 
 			messages = RunWorkflowAndReturnFormattedMessage(ch.Cart, OrderGroupWorkflowManager.CartValidateWorkflowName);
 			ch.Cart.AcceptChanges();
@@ -276,6 +306,7 @@ namespace OxxCommerceStarterKit.Core.Services
 		{
 			var item = cart.OrderForms[0].LineItems.FindItemByCatalogEntryId(lineItem.Code);
 
+            //TODO: Let specific model implementation populate these fields, we need to know too much about the model here
 			item[Constants.Metadata.LineItem.DisplayName] = lineItem.Name;
 			item[Constants.Metadata.LineItem.ImageUrl] = lineItem.ImageUrl;
 			item[Constants.Metadata.LineItem.Size] = lineItem.Size;
@@ -284,10 +315,6 @@ namespace OxxCommerceStarterKit.Core.Services
 			item[Constants.Metadata.LineItem.ColorImageUrl] = lineItem.ColorImageUrl;
 			item[Constants.Metadata.LineItem.ArticleNumber] = lineItem.ArticleNumber;
 	        item[Constants.Metadata.LineItem.WineRegion] = lineItem.WineRegion;
-
-
-
-
 
 			cart.AcceptChanges();
 		}
