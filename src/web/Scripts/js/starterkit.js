@@ -21,9 +21,9 @@
 		init: function () {
 		    console.log("init");
 		    this._language = Oxx.AjaxUtils.language;
-			this._$wishlist = $('.menu-top-right .wishlist-counter');
+			this._$wishlist = $('.wishlist-counter');
 			this._$wishlistCounter = this._$wishlist.find('.val');
-			this._$cart = $('.menu-top-right .cart-counter');
+			this._$cart = $('.cart-counter');
 			this._$cartCounter = this._$cart.find('.val');
 			this._$footerHelpButtons = $('.footer .help');
 

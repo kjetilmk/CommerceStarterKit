@@ -187,7 +187,7 @@
 			$scope.loaderVisible = true;
 
 			product.quantity = $scope.sanityCheckQuantity(product.quantity);
-			var cart = $('.menu-top-right ul li').first();
+			var cart = $('.cart-counter').parent();
 			if (cart) {
 				animateAddToCart(cart, $.proxy($scope._addToCartAnimateComplete, $scope, product));
 			}else {
@@ -210,7 +210,7 @@
 			$scope.addedToCartMessageVisible = false;
 
 			product.quantity = $scope.sanityCheckQuantity(product.quantity);
-			var cart = $('.menu-top-right ul li').last();
+			var cart = $('.wishlist-counter').parent();
 			animateAddToCart(cart, $.proxy($scope._addToWishListAnimateComplete, $scope, product));
 		};
 

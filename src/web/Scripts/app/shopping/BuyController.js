@@ -83,7 +83,8 @@
 	            commercestarterkit.openProductDialog($scope.product.code);
 	        } else {
 
-	            var cart = $('.menu-top-right ul li').first();
+	            // var cart = $('.menu-top-right ul li').first();
+	            var cart = $('.cart-counter').parent();
 	            if (cart) {
 	                animateAddToCart(cart, $scope.animationImageId, $.proxy($scope._addToCartAnimateComplete, $scope, product));
 	            } else {

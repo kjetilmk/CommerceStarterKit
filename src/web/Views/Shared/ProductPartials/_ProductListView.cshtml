@@ -11,7 +11,7 @@
         <a href="@Url.ContentUrl(Model.ContentLink)">
             @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
             {
-                <img class="img-responsive" id="anim-img-@Model.ContentLink" src="@(@Model.ImageUrl)?preset=listmedium" />
+                <img class="img-responsive" id="anim-img-@Model.ContentLink" src="@(@Model.ImageUrl)?preset=listmedium"/>
             }
             else
             {
@@ -19,7 +19,9 @@
             }
         </a>
     </div>
-    <div class="newitemtext">@Model.NewItemText &nbsp;</div>
+    @if (string.IsNullOrEmpty(Model.NewItemText) == false) {
+        <div class="newitemtext">@Model.NewItemText</div>
+    }
     <h3><a href="@Url.ContentUrl(Model.ContentLink)">@Model.DisplayName</a></h3>
     <div class="price">&nbsp; @Model.PriceString &nbsp;</div>
     <div class="add-to-cart-form" ng-controller="BuyController" ng-init="init('@chrome.Language','@Model.Code','@Model.DisplayName',1 ,'','', 'anim-img-@Model.ContentLink', '@Model.ContentType')">
