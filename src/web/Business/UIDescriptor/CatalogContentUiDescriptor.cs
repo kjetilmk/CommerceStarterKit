@@ -24,5 +24,17 @@ namespace OxxCommerceStarterKit.Web.Business.UIDescriptor
         }
     }
 
-   
+
+    [UIDescriptorRegistration]
+    public class WineContentUiDescriptor : UIDescriptor<WineSKUContent>
+    {
+        public WineContentUiDescriptor()
+            : base()
+        {
+            DefaultView = CmsViewNames.OnPageEditView;
+
+        }
+    }
+
+
 }
