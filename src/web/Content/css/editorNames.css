@@ -4,7 +4,7 @@ body {
   background: transparent;
   background-image: none;
 }
-.intro {
+.lead {
   EditMenuName: "Ingress";
   line-height: 24px;
   margin-bottom: 18px;
@@ -53,4 +53,14 @@ a:visited {
   color: #2d839e;
   text-decoration: underline;
   font-weight: bold;
+}
+/* Miscellaneous styles */
+blockquote {
+  ChangeElementType: true;
+  EditMenuTitle: "Miscellaneous";
+  EditMenuName: "Quote";
+}
+blockquote.blockquote-reverse {
+  ChangeElementType: true;
+  EditMenuName: "Quote right aligned";
 }

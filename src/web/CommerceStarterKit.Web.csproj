@@ -63,6 +63,7 @@
     <Content Include="ClientResources\Scripts\select2\css\select2x2.png" />
     <Content Include="ClientResources\Scripts\select2\select2.js" />
     <Content Include="Content\css\commerce-starter-kit\_variables.less" />
+    <Content Include="Content\css\commerce-starter-kit\blocks\_productsearchblock.less" />
     <None Include="Content\css\commerce-starter-kit\_mypage.less" />
     <None Include="Content\css\commerce-starter-kit\_header.less" />
     <None Include="Content\css\commerce-starter-kit\_search-autocomplete.less" />
@@ -562,6 +563,7 @@
     <Content Include="Views\Shared\DisplayTemplates\VideoFile.cshtml" />
     <Content Include="Views\GenericPayment\Index.cshtml" />
     <Content Include="Views\Shared\Error\_EmptyCartError.cshtml" />
+    <Content Include="Views\ArticleWithSidebarPage\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1097,10 +1099,12 @@
     <Compile Include="Business\UIDescriptor\CatalogContentUiDescriptor.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Business\UI\CommerceManagerNavigator.cs" />
     <Compile Include="Controllers\Admin\DeveloperToolsController.cs" />
     <Compile Include="Controllers\BasePartialContentController.cs" />
     <Compile Include="Business\Payment\DibsPaymentProcessingResult.cs" />
     <Compile Include="Business\Payment\DibsPaymentProcessor.cs" />
+    <Compile Include="Controllers\ArticleWithSidebarPageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\GenericPaymentController.cs" />
     <Compile Include="Controllers\FashionProductPartialController.cs" />
@@ -1119,6 +1123,7 @@
     <Compile Include="HttpContextIdentityProvider.cs" />
     <Compile Include="IIdentityProvider.cs" />
     <Compile Include="Models\Files\VideoFile.cs" />
+    <Compile Include="Models\PageTypes\ArticleWithSidebarPage.cs" />
     <Compile Include="Models\PageTypes\Payment\BasePaymentPage.cs" />
     <Compile Include="Models\PageTypes\Payment\GenericPaymentPage.cs" />
     <Compile Include="Models\ViewModels\Email\NotificationSettings.cs" />

@@ -12,11 +12,16 @@
 @import "commerce-starter-kit/_productDialog.less";
 @import "commerce-starter-kit/blocks/_productTeaserBlock.less";
 @import "commerce-starter-kit/blocks/_video.less";
+@import "commerce-starter-kit/blocks/_productsearchblock.less";
 @import "commerce-starter-kit/_bootstrap-lightbox.less";
 @import "commerce-starter-kit/_search-autocomplete.less";
 @import "commerce-starter-kit/_myPage.less";
 
 body {
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
 }
 
 .nav {
@@ -39,8 +44,6 @@ body {
     margin-top: 30px;
 }
 
-
-
 .drop-shadow {
     /*-webkit-box-shadow: 6px 0 10px -5px #999, -6px 0 10px -5px #999;
     -moz-box-shadow: 6px 0 10px -5px #999, -6px 0 10px -5px #999;
@@ -62,7 +65,7 @@ body {
 }
 
 .navbar-default {
-   font-size: 14px;
+    font-size: 14px;
 }
 
 .navbar-main {
@@ -70,7 +73,7 @@ body {
     color: #000;
     margin-bottom: 0px;
     border-bottom: none;
-    
+
 
     .nav > li > a:hover {
         color: #000;
@@ -79,15 +82,18 @@ body {
     .nav > li > a:visited {
         color: #98978b;
     }
-
 }
 
 .navbar-sub {
     border-bottom: 6px solid #93c54b;
+
     .nav > li > a {
         color: #ffffff;
     }
 }
+
+
+
 
 .dropdown-menu > li > a {
     color: #000000;

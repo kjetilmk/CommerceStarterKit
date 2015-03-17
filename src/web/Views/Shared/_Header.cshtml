@@ -16,17 +16,17 @@
 <nav class="navbar navbar-default navbar-static-top navbar-main" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse">
+        <div class="navbar-header logo">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainmenu-top">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="@Model.HomePageUrl"><img src="@Model.LogoImageUrl?preset=imagenarrow" alt="Logo"></a>
+            <a class="navbar-brand" href="@Model.HomePageUrl"><img src="@Model.LogoImageUrl?preset=imagenarrow" class="img-responsive" alt="Logo"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="mainmenu-top">
             <ul class="nav navbar-nav navbar-left">
                 <li>
                     @if (this.User.Identity.IsAuthenticated)
@@ -130,14 +130,14 @@
 <nav class="navbar navbar-default menu-main navbar-sub" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#starterkit-mainmenu-collapable">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainmenu-sub">
                 <span class="sr-only">@Html.Translate("/common/layout/open_menu")</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="navbar-collapse collapse navbar-responsive-collapse" id="starterkit-mainmenu-collapable">
+        <div class="navbar-collapse collapse navbar-responsive-collapse" id="mainmenu-sub">
             @Html.Partial("_MainMenu")
             <div class="navbar-form navbar-right search">
                 <form action="@Url.ContentUrl(Model.SearchPage)">

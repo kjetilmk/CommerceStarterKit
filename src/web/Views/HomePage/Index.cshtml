@@ -3,7 +3,7 @@
 	ViewBag.Title = Model.CurrentPage.Name;
 }
 <div id="frontpage">
-@Html.PropertyFor(x => x.CurrentPage.BodyContent, new { EditContainerClass = "overflow-hidden", CssClass = "clearfix" })
+@Html.PropertyFor(x => x.CurrentPage.BodyContent, new { CssClass = "overflow-hidden clearfix" })
 </div>
 
 @section scripts {

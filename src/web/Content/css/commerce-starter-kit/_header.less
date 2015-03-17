@@ -25,29 +25,24 @@
         left: 0;        
         text-align: center;
         z-index: 1;
-        width: 100%;
+        /*width: 100%;*/
         margin: 0;
 
-        img {
-            margin-top:30px;
+        /*img {
             display: inline;
-        }
+        }*/
     }
 }
 
 @media only screen and (max-width: 768px) {
     .header {
-        .menu-top {
+        /*.menu-top {
             padding-top: 30px;
         }
 
         .logo {
             top: 5px;
-
-            img {
-                width: 200px;
-            }
-        }
+        }*/
     }
 
     .nav > li > a {
@@ -57,20 +52,18 @@
 
 @media only screen and (min-width: 769px) and (max-width: 992px) {
     .header .logo {
-        top: 43px;
+        /*top: 43px;
 
         img {
             width: 400px;
-        }
+        }*/
     }
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
     .header .logo {
-        top: 35px;
-
         img {
-            width: 500px;
+            width: 75%;
         }
     }
 }
@@ -80,8 +73,28 @@
 }
 
 @media only screen and (max-width: 767px) {
-    header .menu-top {
-        padding-top: 5px;
-        padding-bottom: 3px;
+    header {    
+        .navbar-main {
+            padding-top: 5px;
+            padding-bottom: 3px;
+            }
+        .navbar {
+            .navbar-brand {
+                float: none;
+            }
+
+            .container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+                margin-right: 0px;
+                margin-left: 0px;
+            }
+        }
+    }
+    .header {
+        .logo {
+            padding-left: 1em;
+            img {
+                width: 75%;
+            }
+        }
     }
 }
