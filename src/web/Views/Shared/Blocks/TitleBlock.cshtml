@@ -1,0 +1,14 @@
+﻿@model OxxCommerceStarterKit.Web.Models.Blocks.TitleBlock
+@functions
+{
+
+    string GetStyle(string style, string value)
+    {
+        return string.IsNullOrEmpty(value) ? "" : style + ": " + value + ";";
+    }
+
+
+}
+<h1 class="titleBlock" style="@GetStyle("color", Model.TextColor) @GetStyle("background-color", Model.TextBackgroundColor) @GetStyle("padding", Model.Padding) @GetStyle("margin", Model.Margin)">
+    @Html.PropertyFor(m => m.Title)
+</h1>

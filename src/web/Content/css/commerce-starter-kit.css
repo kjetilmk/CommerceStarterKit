@@ -864,6 +864,9 @@ body .wineproductsearchblock .product-list h2 {
   margin-right: -1em;
   padding: 10px;
 }
+.titleBlock {
+  padding: 4px;
+}
 .lightbox-open {
   overflow: hidden;
 }

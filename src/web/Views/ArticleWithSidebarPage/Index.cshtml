@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            @Html.PropertyFor(x => x.CurrentPage.SidebarContent, new { CssClass = "overflow-hidden" })
+            @Html.PropertyFor(x => x.CurrentPage.SidebarContent, new { tag = "col-sm-12", CssClass = "row overflow-hidden" })
         </div>
     </div>
 </div>

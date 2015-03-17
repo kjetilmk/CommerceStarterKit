@@ -64,6 +64,7 @@
     <Content Include="ClientResources\Scripts\select2\select2.js" />
     <Content Include="Content\css\commerce-starter-kit\_variables.less" />
     <Content Include="Content\css\commerce-starter-kit\blocks\_productsearchblock.less" />
+    <Content Include="Content\css\commerce-starter-kit\blocks\_titleBlock.less" />
     <None Include="Content\css\commerce-starter-kit\_mypage.less" />
     <None Include="Content\css\commerce-starter-kit\_header.less" />
     <None Include="Content\css\commerce-starter-kit\_search-autocomplete.less" />
@@ -78,6 +79,12 @@
     <Content Include="Content\css\print.css" />
     <Content Include="Content\css\print.min.css" />
     <Content Include="Content\Images\commerce-shop-logo.png" />
+    <Content Include="Content\Images\EditorThumbnails\Commerce-thumbnail-green.png" />
+    <Content Include="Content\Images\EditorThumbnails\Commerce-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\Content-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\Multimedia-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\Social-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\System-thumbnail.png" />
     <Content Include="Content\Images\empty-shopping-cart.png" />
     <Content Include="Content\Images\paymentMethods\pay by credit card.png" />
     <Content Include="Content\Images\paymentMethods\telefonbetaling.png" />
@@ -564,6 +571,7 @@
     <Content Include="Views\GenericPayment\Index.cshtml" />
     <Content Include="Views\Shared\Error\_EmptyCartError.cshtml" />
     <Content Include="Views\ArticleWithSidebarPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\TitleBlock.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1122,6 +1130,7 @@
     <Compile Include="Extensions\UrlExtentions.cs" />
     <Compile Include="HttpContextIdentityProvider.cs" />
     <Compile Include="IIdentityProvider.cs" />
+    <Compile Include="Models\Blocks\TitleBlock.cs" />
     <Compile Include="Models\Files\VideoFile.cs" />
     <Compile Include="Models\PageTypes\ArticleWithSidebarPage.cs" />
     <Compile Include="Models\PageTypes\Payment\BasePaymentPage.cs" />
