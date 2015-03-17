@@ -23,7 +23,7 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
     [ContentType(GUID = "3B579852-D4AD-41D5-B4BA-50FF4CC55A6A",
         DisplayName = "Home Page",
         Description = "The start page of the site",
-        GroupName = "Pages",
+        GroupName = WebGlobal.GroupNames.Default,
 		AvailableInEditMode = false,
 		Order = 100)]
     [SiteImageUrl]

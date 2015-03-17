@@ -18,8 +18,9 @@ using OxxCommerceStarterKit.Core.Attributes;
 
 namespace OxxCommerceStarterKit.Web.Models.Blocks
 {
-	[ContentType(GUID = "771f1e97-fd06-4349-a2b8-2f4dee314751", 
-		DisplayName = "Page list block")]
+	[ContentType(GUID = "771f1e97-fd06-4349-a2b8-2f4dee314751",
+        DisplayName = "Page List",
+        GroupName = "Content")]
 	[SiteImageUrl]
 	public class PageListBlock : SiteBlockData
 	{

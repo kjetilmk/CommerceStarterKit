@@ -19,8 +19,9 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 	[ContentType(DisplayName = "Newsletter unsubscribe page", 
 		GUID = "5c7fd942-3bf3-46fa-a309-59a94466d103", 
 		Description = "A page to allow a user to unsubscribe from a newsletter",
-		GroupName = "Pages")]
-	[SiteImageUrl]
+		GroupName = WebGlobal.GroupNames.Specialized
+        )]
+    [SiteImageUrl(thumbnail: EditorThumbnail.System)]
 	public class NewsletterUnsubscribePage : SitePage
 	{
 		[CultureSpecific]

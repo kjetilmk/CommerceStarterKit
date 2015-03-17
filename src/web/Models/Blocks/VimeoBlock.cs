@@ -24,10 +24,11 @@ namespace OxxCommerceStarterKit.Web.Models.Blocks
 	/// http://world.episerver.com/Blogs/Jeff-Wallace/Dates/2013/3/YouTube-Block/
 	/// </summary>
 	[ContentType(
-		DisplayName = "Vimeo Block",
+		DisplayName = "Vimeo Video",
 		GUID = "a8172c33-e087-4e68-980e-a79b0e093675",
-		Description = "Display Vimeo video")]
-	[SiteImageUrl]
+        Description = "Displays Vimeo video",
+        GroupName = "Multimedia")]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Multimedia)]
 	public class VimeoBlock : SiteBlockData
 	{
 

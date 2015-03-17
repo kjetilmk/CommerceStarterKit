@@ -23,11 +23,11 @@ using OxxCommerceStarterKit.Web.Models.CustomProperties;
 namespace OxxCommerceStarterKit.Web.Models.PageTypes
 {
 	[ContentType(GUID = "d7cdf1da-83a0-4f9e-b602-55017ad333ee",
-	 DisplayName = "Article Page",
-	 Description = "A dynamic article template",
-	 GroupName = "Pages",
+	 DisplayName = "Article",
+	 Description = "An article template",
+     GroupName = WebGlobal.GroupNames.Default,
 	 Order = 100)]
-	[SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Content)]
 	public class ArticlePage : SitePage
 	{
 		[Display(
@@ -39,7 +39,7 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 
 		[Display(
 			Name = "List view text",
-			Description = "If empty, then the intro will be used instead",
+			Description = "Used in lists, if empty, then the intro will be used instead",
 			GroupName = SystemTabNames.Content,
 			Order = 10)]
         [CultureSpecific]

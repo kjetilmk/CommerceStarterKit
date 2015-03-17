@@ -18,10 +18,10 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 	[ContentType(GUID = "ECC455C7-FD07-4480-970E-3FB8D0F85BDE",
 		DisplayName = "Login Page",
 		Description = "Login Page",
-		GroupName = "Commerce System Pages",
+        GroupName = WebGlobal.GroupNames.Specialized,
 		AvailableInEditMode = false,
 		Order = 100)]
-	[SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.System)]
 	public class LoginPage : CommerceSampleModulePage
 	{
 		[Display(Name = "Login page text", Order = 10)]

@@ -19,11 +19,11 @@ using OxxCommerceStarterKit.Core.Attributes;
 namespace OxxCommerceStarterKit.Web.Models.PageTypes
 {
      [ContentType(GUID = "E346B4F1-DB39-404B-9980-D715B8F219AF",
-                  DisplayName = "Shopping Category Page",
+                  DisplayName = "Product List Page",
                   Order = 100,
-                  GroupName = "Commerce System Pages",
+                  GroupName = WebGlobal.GroupNames.Commerce,
                   Description = "Shopping Category Page.")]
-    [SiteImageUrl]
+     [SiteImageUrl(thumbnail: EditorThumbnail.Commerce)]
     public class ShoppingCategoryPage : CommerceSampleModulePage
     {
          [Searchable(true)]

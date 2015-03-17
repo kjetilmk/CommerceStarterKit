@@ -149,6 +149,17 @@ namespace OxxCommerceStarterKit.Web
 			public const string NoRenderer = "norenderer";
 		}
 
+        public static class GroupNames
+        {
+            public const string Default = "Default";
+            public const string Commerce = "Commerce";
+            public const string Contact = "Contact";
+            public const string MetaData = "Metadata";
+            public const string SiteSettings = "SiteSettings";
+            public const string Specialized = "Specialized";
+        }
+
+
 		/// <summary>
 		/// Virtual path to folder with static graphics, such as "~/Static/gfx/"
 		/// </summary>

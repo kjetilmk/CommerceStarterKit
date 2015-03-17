@@ -19,11 +19,11 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 {
     [ContentType(GUID = "A92C8A05-54A1-4356-BB1E-35B8AFF283A5",
                   DisplayName = "Shopping Page",
-                  GroupName = "Commerce System Pages",
+                  GroupName = WebGlobal.GroupNames.Commerce,
                   Order = 100,
 				  AvailableInEditMode = false,
                   Description = "The shopping page.")]
-    [SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Commerce)]
     public class ShoppingOverviewPage : SitePage
     {
         [Required]
