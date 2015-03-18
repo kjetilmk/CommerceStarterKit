@@ -55,7 +55,7 @@
 			};
 			$scope.animationImageId = animationImageId;
 	        // Since we don't have Variants for the simple init, we check the content type
-			if (contentType.lastIndexOf("Fashion", 0) === 0) {
+			if (contentType && contentType.lastIndexOf("Fashion", 0) === 0) {
 			    $scope.showPopupDialog = true;
 			}
         };

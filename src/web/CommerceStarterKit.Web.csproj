@@ -65,6 +65,7 @@
     <Content Include="Content\css\commerce-starter-kit\_variables.less" />
     <Content Include="Content\css\commerce-starter-kit\blocks\_productsearchblock.less" />
     <Content Include="Content\css\commerce-starter-kit\blocks\_titleBlock.less" />
+    <Content Include="Content\css\commerce-starter-kit\blocks\_bannerBlock.less" />
     <None Include="Content\css\commerce-starter-kit\_mypage.less" />
     <None Include="Content\css\commerce-starter-kit\_header.less" />
     <None Include="Content\css\commerce-starter-kit\_search-autocomplete.less" />
@@ -572,6 +573,8 @@
     <Content Include="Views\Shared\Error\_EmptyCartError.cshtml" />
     <Content Include="Views\ArticleWithSidebarPage\Index.cshtml" />
     <Content Include="Views\Shared\Blocks\TitleBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\BannerBlock.cshtml" />
+    <Content Include="Views\BannerBlock\_bannerblock.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -655,9 +658,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\EPiCode.Commerce.RestApi.1.1.12\lib\net45\EPiCode.Commerce.RestApi.dll</HintPath>
     </Reference>
-    <Reference Include="EPiCode.GoogleAnalytics.UniversalTracking, Version=1.0.5428.38538, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EPiCode.GoogleAnalytics.UniversalTracking, Version=1.1.5555.1132, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EPiCode.GoogleAnalytics.UniversalTracking.1.0.5428.38538\lib\net45\EPiCode.GoogleAnalytics.UniversalTracking.dll</HintPath>
+      <HintPath>..\..\packages\EPiCode.GoogleAnalytics.UniversalTracking.1.1.5555.1132\lib\net45\EPiCode.GoogleAnalytics.UniversalTracking.dll</HintPath>
     </Reference>
     <Reference Include="EPiCode.SqlBlobProvider, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -1119,6 +1122,7 @@
     <Compile Include="Business\ClientTracking\GoogleAnalyticsTracker.cs" />
     <Compile Include="Business\Payment\IDibsPaymentProcessor.cs" />
     <Compile Include="Business\ClientTracking\IGoogleAnalyticsTracker.cs" />
+    <Compile Include="Controllers\BannerBlockController.cs" />
     <Compile Include="IHttpContextProvider.cs" />
     <Compile Include="Business\Payment\IPaymentCompleteHandler.cs" />
     <Compile Include="Controllers\IReceiptViewModelBuilder.cs" />
@@ -1130,6 +1134,7 @@
     <Compile Include="Extensions\UrlExtentions.cs" />
     <Compile Include="HttpContextIdentityProvider.cs" />
     <Compile Include="IIdentityProvider.cs" />
+    <Compile Include="Models\Blocks\BannerBlock.cs" />
     <Compile Include="Models\Blocks\TitleBlock.cs" />
     <Compile Include="Models\Files\VideoFile.cs" />
     <Compile Include="Models\PageTypes\ArticleWithSidebarPage.cs" />

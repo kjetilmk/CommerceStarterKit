@@ -1,0 +1,39 @@
+﻿@using EPiServer.ServiceLocation
+@using OxxCommerceStarterKit.Web.Business.ClientTracking
+@model OxxCommerceStarterKit.Web.Models.Blocks.BannerBlock
+@{
+    // HACK
+    IGoogleAnalyticsTracker googleAnalyticsTracker = ServiceLocator.Current.GetInstance<IGoogleAnalyticsTracker>();
+    
+    if (string.IsNullOrEmpty(Model.PromotionId) == false || string.IsNullOrEmpty(Model.PromotionName) == false)
+    {
+        googleAnalyticsTracker.TrackPromotionImpression(Model.PromotionId, Model.PromotionName, Model.PromotionBannerName);
+    }
+
+    var scriptId = "gaPromo_" + Guid.NewGuid().ToString().Replace("-", "") + "()";
+    var script = googleAnalyticsTracker.GetPromotionClickScript(Model.PromotionId, Model.PromotionName, Model.PromotionBannerName);
+    
+}
+@functions
+{
+    string GetStyle(string style, string value)
+    {
+        return string.IsNullOrEmpty(value) ? "" : style + ": " + value + ";";
+    }
+
+}
+<div class="banner-container text-right">
+    <a href="@Url.ContentUrl(Model.TargetLink)" style="@GetStyle("color", Model.TextColor)"
+       @if (string.IsNullOrEmpty(Model.PromotionId) == false) { @: onclick="if (ga) { @scriptId;}"
+              }>
+        @Html.PropertyFor(p => p.Image, new { CssClass = "img-responsive" })
+        <div class="caption" style="">@Html.PropertyFor(p => p.Title)</div>
+    </a>
+
+    <script type="text/javascript">
+        function @Html.Raw(scriptId)
+        {
+            @Html.Raw(script)
+        }
+    </script>
+</div>
