@@ -20,7 +20,7 @@ namespace OxxCommerceStarterKit.Web.Models.Blocks
     [ContentType(GUID = "064c7fb5-4cb5-4771-b0e1-b01a98cb01ec",
         DisplayName = "Banner",
         Description = "Banner block with image and overlay text and optional link",
-        GroupName = WebGlobal.GroupNames.Default
+        GroupName = WebGlobal.GroupNames.Content
         )]
     [SiteImageUrl(thumbnail: EditorThumbnail.Content)]
 	public class BannerBlock : SiteBlockData

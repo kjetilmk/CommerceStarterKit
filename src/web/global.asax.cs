@@ -152,6 +152,7 @@ namespace OxxCommerceStarterKit.Web
         public static class GroupNames
         {
             public const string Default = "Default";
+            public const string Content = "Content";
             public const string Commerce = "Commerce";
             public const string Contact = "Contact";
             public const string MetaData = "Metadata";
