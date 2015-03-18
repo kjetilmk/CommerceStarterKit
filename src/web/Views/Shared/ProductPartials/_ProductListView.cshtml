@@ -3,8 +3,9 @@
     Layout = null;
     var chrome = (Chrome)ViewBag.Chrome;
     var extraCssClass = ViewData["extraCssClass"] as string;
-}
-
+    var displayName = @Model.DisplayName ?? "";
+    displayName = displayName.Replace("'", "");
+}    
 
 <div class="product @extraCssClass">
     <div class="image">
@@ -23,8 +24,16 @@
         <div class="newitemtext">@Model.NewItemText</div>
     }
     <h3><a href="@Url.ContentUrl(Model.ContentLink)">@Model.DisplayName</a></h3>
-    <div class="price">&nbsp; @Model.PriceString &nbsp;</div>
-    <div class="add-to-cart-form" ng-controller="BuyController" ng-init="init('@chrome.Language','@Model.Code','@Model.DisplayName.Replace("'", "")',1 ,'','', 'anim-img-@Model.ContentLink', '@Model.ContentType')">
+    @if (string.IsNullOrEmpty(Model.PriceString) == false)
+    {
+        <div class="price">@Model.PriceString</div>
+    }
+    else
+    {
+        <div class="price">Not For Sale</div>
+    }
+    
+    <div class="add-to-cart-form" ng-controller="BuyController" ng-init="init('@chrome.Language','@Model.Code','@displayName',1 ,'','', 'anim-img-@Model.ContentLink', '@Model.ContentType')">
         <input type="button" class="btn btn-success btn-sm" value="@Html.Translate("/common/product/add_to_cart")" ng-click="addToCart(product)" />
     </div>
 </div>
