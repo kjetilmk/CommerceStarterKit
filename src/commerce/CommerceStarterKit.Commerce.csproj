@@ -5594,6 +5594,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ShellStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Business\EventHandlers\BusinessFoundationGenericHandler.cs" />
     <Compile Include="InitializationModule.cs" />
   </ItemGroup>
   <Import Project="..\..\packages\OctoPack.3.0.26\tools\OctoPack.targets" Condition="Exists('..\..\packages\OctoPack.3.0.26\tools\OctoPack.targets')" />
