@@ -18,7 +18,7 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 {
     [ContentType( GUID = "760AEE27-E362-49EE-BFAC-4FE32F2C4EFB",
                   DisplayName = "Default Page",
-                  GroupName = "CommerceSample",
+                  GroupName = WebGlobal.GroupNames.Commerce,
 				  AvailableInEditMode = false,
 				  Order = 100,
                   Description = "Marked for DELETION")]

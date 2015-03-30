@@ -22,8 +22,9 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 		DisplayName = "Newsletter",
 	   GUID = "4E783817-45BE-4270-A92F-17EC9F479F7B",
 	   Description = "A page with a newsletter design.",
-	   GroupName = "Pages")]
-	[SiteImageUrl]
+	   GroupName = WebGlobal.GroupNames.Default
+       )]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Social)]
 	public class NewsletterPage : NewsletterBase
 	{
 

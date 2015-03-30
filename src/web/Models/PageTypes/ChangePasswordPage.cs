@@ -17,10 +17,10 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 	[ContentType(GUID = "6B7DCD26-0F90-498D-98A3-3EDFDEBF7D87",
 		DisplayName = "Change Password Page",
 		Description = "The page which allows to change current password.",
-		GroupName = "Commerce System Pages",
+        GroupName = WebGlobal.GroupNames.Specialized,
 		AvailableInEditMode = false,
 		Order = 100)]
-	[SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.System)]
 	public class ChangePasswordPage : CommerceSampleModulePage
 	{
 		public virtual XhtmlString UpdatedPassword { get; set; }

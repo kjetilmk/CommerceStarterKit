@@ -15,11 +15,11 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 {
     [ContentType(GUID = "BAE8C7EE-AA11-4884-8ECC-325AB02B9E8E",
         DisplayName = "Cart Page",
-        GroupName = "Commerce System Pages",
+        GroupName = WebGlobal.GroupNames.Commerce,
         Order = 100,
 		AvailableInEditMode = false,
 		Description = "")]
-    [SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Commerce)]
     public class CartSimpleModulePage : CommerceSampleModulePage
     {
         

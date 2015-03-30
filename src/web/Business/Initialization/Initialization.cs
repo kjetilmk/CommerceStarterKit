@@ -75,6 +75,11 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
 
             // Note! this had a bug in 8.0.0, fixed in 8.0.1 and later
             associationTypeRepository.Add(new AssociationGroupDefinition() { Name = Constants.AssociationTypes.SameStyle });
+            associationTypeRepository.Add(new AssociationGroupDefinition() { Name = Constants.AssociationTypes.Accessory });
+            associationTypeRepository.Add(new AssociationGroupDefinition() { Name = Constants.AssociationTypes.CrossSell });
+            associationTypeRepository.Add(new AssociationGroupDefinition() { Name = Constants.AssociationTypes.Upsell});
+            associationTypeRepository.Add(new AssociationGroupDefinition() { Name = Constants.AssociationTypes.Replacement });
+            // Default is the "Goes well with" association
             associationTypeRepository.Add(new AssociationGroupDefinition() { Name = Constants.AssociationTypes.Default });
             associationTypeRepository.Delete(Constants.AssociationTypes.RecommendedProducts);
         }

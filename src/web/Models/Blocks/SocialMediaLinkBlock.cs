@@ -19,8 +19,9 @@ namespace OxxCommerceStarterKit.Web.Models.Blocks
 	/// <summary>
 	/// Used to insert a link which is styled as a button
 	/// </summary>
-	[ContentType(GUID = "9F50587C-C09E-4B9D-8011-54BABF4AFB24")]
-    [SiteImageUrl]
+    [ContentType(GUID = "9F50587C-C09E-4B9D-8011-54BABF4AFB24",
+        GroupName = "Social")]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Social)]
 	public class SocialMediaLinkBlock : SiteBlockData
 	{
 		[Display(Order = 10, GroupName = SystemTabNames.Content)]

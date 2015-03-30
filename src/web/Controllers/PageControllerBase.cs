@@ -8,6 +8,7 @@ Copyright (C) 2013-2014 BV Network AS
 
 */
 
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
@@ -65,7 +66,18 @@ namespace OxxCommerceStarterKit.Web.Controllers
 			accessDenied(filterContext);
 		}
 
-		public IPageViewModel<PageData> CreatePageViewModel(PageData pageData)
+        protected virtual string GetViewForPageType(PageData currentPage)
+        {
+            var virtualPath = String.Format("~/Views/{0}/Index.cshtml", currentPage.GetOriginalType().Name);
+            if (System.IO.File.Exists(Request.MapPath(virtualPath)) == false)
+            {
+                virtualPath = "Index";
+            }
+            return virtualPath;
+        }
+
+
+		public virtual IPageViewModel<PageData> CreatePageViewModel(PageData pageData)
 		{
 			var activator = new Activator<IPageViewModel<PageData>>();
 			var model = activator.Activate(typeof(PageViewModel<>), pageData);
@@ -73,7 +85,7 @@ namespace OxxCommerceStarterKit.Web.Controllers
 			return model;
 		}
 
-		public void InitializePageViewModel<TViewModel>(TViewModel model) where TViewModel : IPageViewModel<PageData>
+	    protected void InitializePageViewModel<TViewModel>(TViewModel model) where TViewModel : IPageViewModel<PageData>
 		{
 			var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
 			if (ContentReference.IsNullOrEmpty(ContentReference.StartPage) == false)
@@ -112,7 +124,7 @@ namespace OxxCommerceStarterKit.Web.Controllers
         /// </remarks>
         /// <param name="contentLink">The content you want to find the section for</param>
         /// <returns>The parent page closes to the start page, or the page referenced by the contentLink itself</returns>
-		private IContent GetSection(ContentReference contentLink)
+        protected IContent GetSection(ContentReference contentLink)
 		{
 			var currentContent = ContentLoader.Get<IContent>(contentLink);
 			if (currentContent.ParentLink != null && currentContent.ParentLink.CompareToIgnoreWorkID(ContentReference.StartPage))

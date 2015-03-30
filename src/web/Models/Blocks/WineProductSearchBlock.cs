@@ -30,10 +30,11 @@ using OxxCommerceStarterKit.Web.Models.FindModels;
 namespace OxxCommerceStarterKit.Web.Models.Blocks
 {
     [ContentType(
-        DisplayName = "WineProductSearchBlock",
+        DisplayName = "Configurable Wine List",
         GUID = "C14C3799-AC95-46D3-9CED-B3C5490FA005",
-        Description = "Configurable Search Block for Wine")]
-    [SiteImageUrl]
+        Description = "Configurable search block for wines, allows filtering on price, regions and brands.",
+        GroupName = "Commerce")]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Commerce)]
     public class WineProductSearchBlock : FindBaseBlockType
     {
 

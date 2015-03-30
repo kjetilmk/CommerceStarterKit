@@ -27,8 +27,9 @@ namespace OxxCommerceStarterKit.Web.Models.Blocks
     [ContentType(
         DisplayName = "YouTube Block",
         GUID = "67429E0D-9365-407C-8A49-69489382BBDC",
-        Description = "Display YouTube video")]
-	[SiteImageUrl]
+        Description = "Display YouTube video",
+        GroupName = "Multimedia")]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Multimedia)]
     public class YouTubeBlock : SiteBlockData, IDefaultDisplayOption
     {
         /// <summary>

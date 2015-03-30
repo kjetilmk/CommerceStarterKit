@@ -17,8 +17,9 @@ using OxxCommerceStarterKit.Core.Attributes;
 namespace OxxCommerceStarterKit.Web.Models.Blocks
 {
 	[ContentType(GUID = "2b0b9fb5-967a-46d1-80a5-4c23299602ee",
-		DisplayName = "1+2 kolonner block",
-		Description = "2 kolonner - 33% og 66%")]
+		DisplayName = "1 + 2 Columns",
+		Description = "2 columns - 33% + 66%",
+		GroupName = "Content")]
 	[SiteImageUrl]
 	public class OneTwoColumnsBlock : SiteBlockData
 	{

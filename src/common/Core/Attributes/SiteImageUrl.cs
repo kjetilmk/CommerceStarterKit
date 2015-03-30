@@ -17,11 +17,12 @@ namespace OxxCommerceStarterKit.Core.Attributes
     /// </summary>
     public class SiteImageUrl : ImageUrlAttribute
     {
+        private const string BasePath = "~/Content/Images/EditorThumbnails/";
         /// <summary>
         /// The parameterless constructor will initialize a SiteImageUrl attribute with a default thumbnail
         /// </summary>
         public SiteImageUrl()
-            : base("~/Content/Images/EditorThumbnails/Editor-thumbnail.png")
+            : this(EditorThumbnail.Content)
         {
 
         }
@@ -31,5 +32,22 @@ namespace OxxCommerceStarterKit.Core.Attributes
         {
 
         }
+
+        public SiteImageUrl(EditorThumbnail thumbnail)
+            : base(BasePath + thumbnail.ToString() + "-thumbnail.png")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Predefined editor thumbnails for ease of use
+    /// </summary>
+    public enum EditorThumbnail
+    {
+        Content,
+        Commerce,
+        Multimedia,
+        Social,
+        System
     }
 }

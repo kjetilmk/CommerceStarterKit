@@ -96,6 +96,10 @@ namespace OxxCommerceStarterKit.Core
             // Not in use - default is the one to use
 			public const string RecommendedProducts = "RecommendedProducts";
 	        public const string SameStyle = "SameStyle";
+            public const string Accessory = "Accessory";
+            public const string CrossSell = "CrossSell";
+            public const string Upsell = "Upsell";
+            public const string Replacement = "Replacement";
         }
 
         public class CodePrefix

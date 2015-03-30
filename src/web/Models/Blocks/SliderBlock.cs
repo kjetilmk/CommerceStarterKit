@@ -18,10 +18,11 @@ using OxxCommerceStarterKit.Web.Business.Rendering;
 namespace OxxCommerceStarterKit.Web.Models.Blocks
 {
 	[ContentType(GUID = "c1a6d014-fa3f-4786-b35d-fa78940a1fdd",
-        DisplayName = "Carousel Block",
-        Description = "Slides images into view."
+        DisplayName = "Carousel",
+        Description = "Slides images into view",
+        GroupName = "Multimedia"
         )]
-	[SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Multimedia)]
     public class SliderBlock : SiteBlockData, IDefaultDisplayOption
 	{
 

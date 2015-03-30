@@ -11,15 +11,17 @@ Copyright (C) 2013-2014 BV Network AS
 using System.ComponentModel.DataAnnotations;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using OxxCommerceStarterKit.Core.Attributes;
 
 namespace OxxCommerceStarterKit.Web.Models.PageTypes
 {
     [ContentType(GUID = "7b6d05bd-d941-4c12-aad1-e5d30b6e12eb",
         DisplayName = "Search Page",
-        GroupName = "Commerce System Pages",
+        GroupName = WebGlobal.GroupNames.Default,
         Order = 100,
 		AvailableInEditMode = false, 
 		Description = "A page which is used to show search result.")]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Content)]
     public class SearchPage : SitePage
     {
         [Searchable(false)]

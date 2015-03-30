@@ -55,7 +55,7 @@ namespace OxxCommerceStarterKit.Web.Models.ViewModels
 			}
 			catch (Exception)
 			{
-				/// TODO: Remove empty catch - needs testing	
+				// TODO: Remove empty catch - needs testing	
 			}
 		}
 

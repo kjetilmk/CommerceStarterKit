@@ -99,9 +99,7 @@ namespace OxxCommerceStarterKit.Web.Models.ViewModels
 		public bool CanBuyEntry
 		{
 			get {
-				return Entry is VariationContent &&
-					//((_canBuyEntry.HasValue && _canBuyEntry.Value) || !_canBuyEntry.HasValue);
-					_canBuyEntry.HasValue && _canBuyEntry.Value;
+				return Entry is VariationContent && _canBuyEntry.HasValue && _canBuyEntry.Value;
 			}
 			set
 			{

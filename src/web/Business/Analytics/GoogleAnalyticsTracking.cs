@@ -180,14 +180,34 @@ namespace OxxCommerceStarterKit.Web.Business.Analytics
                     {
                         trans.Country = "Oslo";
                     }
-
-                    // Register tracking data with the Google Analytics add-on
-                    // Note! This uses the _trackTrans method
-                    // If we're using Enhanced Ecommerce, we 
-                    // E
-                    // Context.AddAnalyticsTransaction(trans);
                 }
             }
+        }
+
+        public void PromotionImpression(string id, string name, string creative = null, string position = null)
+        {
+            Tracking tracking = new Tracking();
+            string script = tracking.TrackPromotionImpression(
+                id: id,
+                name: name,
+                creative: creative,
+                position: position);
+
+            AddInteraction(script);
+            
+        }
+
+        public string PromotionClickScript(string id, string name, string creative = null, string position = null)
+        {
+            Tracking tracking = new Tracking();
+            string script = tracking.TrackPromotionClick(
+                id: id,
+                name: name,
+                creative: creative,
+                position: position);
+
+            return script;
+
         }
 
     }

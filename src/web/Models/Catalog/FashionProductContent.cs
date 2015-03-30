@@ -106,6 +106,7 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
 
             var findProduct = new FindProduct(this, language);
 
+            findProduct.Description = Description;
             findProduct.Color = FacetColor == null ? new List<string>() : FacetColor.Split(',').ToList();
             findProduct.DescriptiveColor = DescriptiveColor;
             findProduct.Sizes =
@@ -205,7 +206,8 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
                 Description = Description,
                 ProductUrl = urlResolver.GetUrl(ContentLink),
                 ImageUrl = this.GetDefaultImage(),
-                PriceString = variation.GetDisplayPrice(market)
+                PriceString = variation.GetDisplayPrice(market),
+                ContentType = this.GetType().Name
             };
             ICurrentMarket currentMarket = ServiceLocator.Current.GetInstance<ICurrentMarket>();
             productListViewModel.PriceAmount = variation.GetDefaultPriceAmount(currentMarket.GetCurrentMarket());

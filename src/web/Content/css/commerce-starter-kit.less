@@ -12,21 +12,30 @@
 @import "commerce-starter-kit/_productDialog.less";
 @import "commerce-starter-kit/blocks/_productTeaserBlock.less";
 @import "commerce-starter-kit/blocks/_video.less";
+@import "commerce-starter-kit/blocks/_productsearchblock.less";
+@import "commerce-starter-kit/blocks/_titleblock.less";
+@import "commerce-starter-kit/blocks/_bannerBlock.less";
 @import "commerce-starter-kit/_bootstrap-lightbox.less";
 @import "commerce-starter-kit/_search-autocomplete.less";
 @import "commerce-starter-kit/_myPage.less";
 
 body {
+}
 
+.overflow-hidden {
+    overflow: hidden !important;
 }
+
 .nav {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 .panel-title {
-	font-size: 14px;
+    font-size: 14px;
 }
+
 .btn {
-	font-size: 12px;
+    font-size: 12px;
 }
 
 .page {
@@ -37,28 +46,60 @@ body {
     margin-top: 30px;
 }
 
-
-
 .drop-shadow {
-    -webkit-box-shadow: 6px 0 10px -5px #999, -6px 0 10px -5px #999;
+    /*-webkit-box-shadow: 6px 0 10px -5px #999, -6px 0 10px -5px #999;
     -moz-box-shadow: 6px 0 10px -5px #999, -6px 0 10px -5px #999;
-    box-shadow: 6px 0 10px -5px #999, -6px 0 10px -5px #999;
+    box-shadow: 6px 0 10px -5px #999, -6px 0 10px -5px #999;*/
 }
 
 .navbar {
     -moz-border-radius: 0 !important;
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
+
+    .navbar-brand {
+        padding: 15px 15px;
+    }
+
+    .nav > li > a {
+        font-size: 14px;
+    }
 }
 
-.navbar-default .navbar-nav > li > a {
-	color: #ffffff;
-	font-size: 14px;
+.navbar-default {
+    font-size: 14px;
 }
+
+.navbar-main {
+    background-color: white;
+    color: #000;
+    margin-bottom: 0px;
+    border-bottom: none;
+
+
+    .nav > li > a:hover {
+        color: #000;
+    }
+
+    .nav > li > a:visited {
+        color: #98978b;
+    }
+}
+
+.navbar-sub {
+    border-bottom: 6px solid #93c54b;
+
+    .nav > li > a {
+        color: #ffffff;
+    }
+}
+
+
+
 
 .dropdown-menu > li > a {
     color: #000000;
-	font-size: 14px;
+    font-size: 14px;
 }
 
 .container.drop-shadow, .header .container {
@@ -68,16 +109,19 @@ body {
 
 
 .input-validation-error {
-	border: 1px solid #f00 !important;
+    border: 1px solid #f00 !important;
 }
+
 .field-validation-valid {
-	display: none;
+    display: none;
 }
+
 .field-validation-error {
-	color: #f00;
+    color: #f00;
 }
+
 .form-group.zip {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 
@@ -90,9 +134,11 @@ body {
     .block {
         margin-bottom: 26px;
     }
+
     .alert {
         margin-bottom: 0;
     }
+
     h2 {
         margin-top: 0;
     }
@@ -110,8 +156,9 @@ h1 {
     font-size: 32px;
     margin: 0 0 20px;
 }
-h2{
-    font-size:22px;
+
+h2 {
+    font-size: 22px;
 }
 
 .loader {
@@ -160,39 +207,41 @@ input[type=text], input[type=password] {
 }
 
 .login-page {
-	padding: 20px;
-	max-width: 500px;
+    padding: 20px;
+    max-width: 500px;
 
-	h1 {
-		font-size: 20px;
-		margin-bottom: 10px;
-	}
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
 
-	h2 {
-		font-size: 18px;
-	}
+    h2 {
+        font-size: 18px;
+    }
 
-	label {
-		font-weight: normal;
-	}
+    label {
+        font-weight: normal;
+    }
 
-	.forgot {
-		margin-right: 20px;
-	}
-	input[type=text], input[type=password] {
+    .forgot {
+        margin-right: 20px;
+    }
+
+    input[type=text], input[type=password] {
         max-width: 300px;
     }
 }
-.my-page{
-    padding-top:30px;
+
+.my-page {
+    padding-top: 30px;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	background-color: #242520;
+    background-color: #242520;
 }
 
 @media only screen and (max-width: 767px) {
-	.article-page {
-		padding-right: 0;
-	}
+    .article-page {
+        padding-right: 0;
+    }
 }

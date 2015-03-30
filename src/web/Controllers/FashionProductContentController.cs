@@ -8,6 +8,7 @@ Copyright (C) 2013-2014 BV Network AS
 
 */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -20,6 +21,7 @@ using EPiServer.Core;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Framework.Localization;
 using EPiServer.Framework.Web.Mvc;
+using EPiServer.Logging;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using Mediachase.Commerce;
@@ -75,24 +77,27 @@ namespace OxxCommerceStarterKit.Web.Controllers
 		public ViewResult Product(string productId, HomePage currentPage)
 		{
 			var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
-			ContentReference productLink;
+			ContentReference productLink = null;
 			FashionProductViewModel model;
 
-			if (!productId.Contains("_"))
-			{
-				int pid = 0;
-				if (int.TryParse(productId, out pid))
-				{
-					var referenceConverter = ServiceLocator.Current.GetInstance<ReferenceConverter>();
-					productLink = referenceConverter.GetContentLink(pid, CatalogContentType.CatalogEntry, 0);
-				}
-				else
-				{
-					ContentReference.TryParse(productId, out productLink);
-				}
-			} else {
-				productLink = ContentReference.Parse(productId);
-			}
+            // First we try the content link directly
+            ContentReference.TryParse(productId, out productLink);
+            if (ContentReference.IsNullOrEmpty(productLink))
+            {
+                // Then we try the code
+                var referenceConverter = ServiceLocator.Current.GetInstance<ReferenceConverter>();
+                try
+                {
+                    productLink = referenceConverter.GetContentLink(productId, CatalogContentType.CatalogEntry);
+                }
+                catch (Exception ex)
+                {
+                    // We cannot parse it
+                    _log.Warning("Cannot parse " + productId + " as a product link or code", ex);
+                    productLink = null;
+                }
+            }
+
 			if (productLink != null)
 			{
 				var currentContent = contentLoader.Get<FashionProductContent>(productLink);

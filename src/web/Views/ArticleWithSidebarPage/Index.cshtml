@@ -1,0 +1,34 @@
+﻿@using OxxCommerceStarterKit.Web.Helpers
+@model OxxCommerceStarterKit.Web.Models.ViewModels.IPageViewModel<OxxCommerceStarterKit.Web.Models.PageTypes.ArticleWithSidebarPage>
+@{
+    ViewBag.Title = Model.CurrentPage.Name;
+}
+<div class="article-page">
+    <div class="row">
+        <div class="pre-content">
+            @Html.PropertyFor(x => x.CurrentPage.PreBodyContent, new { CssClass = "overflow-hidden" })
+        </div>
+        @if (!string.IsNullOrEmpty(Model.CurrentPage.PageTitle) || Html.IsInEditMode())
+        {
+            <h1>@Html.PropertyFor(m => m.CurrentPage.PageTitle)</h1>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            @if (Model.CurrentPage.Intro != null || Html.IsInEditMode())
+            {
+                <div class="lead">@Html.PropertyFor(m => m.CurrentPage.Intro)</div>
+            }
+            <div class="body">
+                @Html.PropertyFor(m => m.CurrentPage.BodyText)
+            </div>
+
+            <div class="body-content">
+                @Html.PropertyFor(x => x.CurrentPage.BodyContent, new {CssClass = "overflow-hidden"})
+            </div>
+        </div>
+        <div class="col-md-4">
+            @Html.PropertyFor(x => x.CurrentPage.SidebarContent, new { tag = "col-sm-12", CssClass = "row overflow-hidden" })
+        </div>
+    </div>
+</div>

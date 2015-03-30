@@ -19,11 +19,11 @@ using OxxCommerceStarterKit.Core.Attributes;
 namespace OxxCommerceStarterKit.Web.Models.PageTypes
 {
 	[ContentType(GUID = "41dfefca-e8c0-4ed4-b251-dfcdac0389c4",
-	 DisplayName = "Blogg",
+	 DisplayName = "Blog",
 	 Description = "A dynamic blog template",
-	 GroupName = "Pages",
+     GroupName = WebGlobal.GroupNames.Default,
 	 Order = 100)]
-	[SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Content)]
 	public class BlogPage : SitePage
 	{
 		[Display(

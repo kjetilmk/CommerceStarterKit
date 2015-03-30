@@ -351,7 +351,6 @@ namespace OxxCommerceStarterKit.Core.Extensions
         public static string GetDefaultImage(this EntryContentBase productContent)
         {
             var urlResolver = ServiceLocator.Current.GetInstance<UrlResolver>();
-            var permanentLinkMapper = ServiceLocator.Current.GetInstance<IPermanentLinkMapper>();
 
             var commerceMedia = productContent.CommerceMediaCollection.OrderBy(m => m.SortOrder).FirstOrDefault(z => z.GroupName != null && z.GroupName.ToLower() != "swatch");
             if (commerceMedia != null)

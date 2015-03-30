@@ -37,17 +37,19 @@ namespace OxxCommerceStarterKit.Web.Controllers
 
         public ViewResult Index(PageData currentPage)
         {
-            var virtualPath = String.Format("~/Views/{0}/Index.cshtml", currentPage.GetOriginalType().Name);
-            if (System.IO.File.Exists(Request.MapPath(virtualPath)) == false)
-            {
-                virtualPath = "Index";
-            }
+            var viewPath = GetViewForPageType(currentPage);
 
             var model = CreatePageViewModel(currentPage);
 
-            return View(virtualPath, model);
+            return View(viewPath, model);
         }
 
+        /// <summary>
+        /// Used by the javascript popup to show content in overlays on a page.
+        /// </summary>
+        /// <param name="reference">The reference.</param>
+        /// <param name="currentPage">The current page.</param>
+        /// <returns></returns>
 		[HttpPost]
 		public ActionResult Get(int reference, HomePage currentPage)
 		{

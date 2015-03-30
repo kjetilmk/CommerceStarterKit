@@ -162,7 +162,8 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
         {
             var language = (Language == null ? string.Empty : Language.Name);
             var findProduct = new WineFindProduct(this, language);
-
+            
+            findProduct.Description = Info_Description;
             findProduct.Sizes = new List<string>() { this.Size };
             findProduct.ShowInList = ShowInList;
             EPiServer.Commerce.SpecializedProperties.Price defaultPrice = this.GetDefaultPrice();
@@ -215,7 +216,8 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
                 ImageUrl = this.GetDefaultImage(),
                 PriceString = this.GetDisplayPrice(market),
                 BrandName = Facet_Brand,
-                Country = Country
+                Country = Country,
+                ContentType = this.GetType().Name
             };
             ICurrentMarket currentMarket = ServiceLocator.Current.GetInstance<ICurrentMarket>();
             productListViewModel.PriceAmount = this.GetDefaultPriceAmount(currentMarket.GetCurrentMarket());

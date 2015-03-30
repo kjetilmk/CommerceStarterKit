@@ -29,9 +29,8 @@ namespace OxxCommerceStarterKit.Web.Models.ViewModels
         public Dictionary<string, ContentReference> Images { get; set; }
         public Dictionary<string, string> Variants { get; set; }
         public string Country { get; set; }
-
         public string ProductUrl { get; set; }
-
         public string ImageUrl { get; set; }
+        public string ContentType { get; set; }
     }
 }

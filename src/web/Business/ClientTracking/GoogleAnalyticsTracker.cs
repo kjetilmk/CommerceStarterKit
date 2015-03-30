@@ -37,5 +37,17 @@ namespace OxxCommerceStarterKit.Web.Business.ClientTracking
             tracking.Purchase(model.Order.OrderNumber,
                 null, (double)model.Order.TotalAmount, (double)model.Order.Tax, (double)model.Order.Shipping);
         }
+
+        public void TrackPromotionImpression(string id, string name, string bannerName)
+        {
+            var tracking = new GoogleAnalyticsTracking(_contextProvider.GetContext());
+            tracking.PromotionImpression(id, name, bannerName);
+        }
+
+        public string GetPromotionClickScript(string id, string name, string bannerName)
+        {
+            var tracking = new GoogleAnalyticsTracking(_contextProvider.GetContext());
+            return tracking.PromotionClickScript(id, name, bannerName);
+        }
     }
 }

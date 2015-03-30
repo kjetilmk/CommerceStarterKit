@@ -25,10 +25,11 @@ namespace OxxCommerceStarterKit.Web.Models.Blocks
 	/// http://world.episerver.com/Blogs/Jeff-Wallace/Dates/2013/3/YouTube-Block/
 	/// </summary>
 	[ContentType(
-		DisplayName = "Viddler Block",
+		DisplayName = "Viddler Video",
 		GUID = "b02db132-1475-4f06-abe1-7671f7c62882",
-		Description = "Display Viddler video")]
-	[SiteImageUrl]
+        Description = "Display Viddler video",
+        GroupName = "Multimedia")]
+	[SiteImageUrl(thumbnail: EditorThumbnail.Multimedia)]
 	public class ViddlerBlock : SiteBlockData
 	{
 

@@ -63,6 +63,9 @@
     <Content Include="ClientResources\Scripts\select2\css\select2x2.png" />
     <Content Include="ClientResources\Scripts\select2\select2.js" />
     <Content Include="Content\css\commerce-starter-kit\_variables.less" />
+    <Content Include="Content\css\commerce-starter-kit\blocks\_productsearchblock.less" />
+    <Content Include="Content\css\commerce-starter-kit\blocks\_titleBlock.less" />
+    <Content Include="Content\css\commerce-starter-kit\blocks\_bannerBlock.less" />
     <None Include="Content\css\commerce-starter-kit\_mypage.less" />
     <None Include="Content\css\commerce-starter-kit\_header.less" />
     <None Include="Content\css\commerce-starter-kit\_search-autocomplete.less" />
@@ -77,6 +80,12 @@
     <Content Include="Content\css\print.css" />
     <Content Include="Content\css\print.min.css" />
     <Content Include="Content\Images\commerce-shop-logo.png" />
+    <Content Include="Content\Images\EditorThumbnails\Commerce-thumbnail-green.png" />
+    <Content Include="Content\Images\EditorThumbnails\Commerce-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\Content-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\Multimedia-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\Social-thumbnail.png" />
+    <Content Include="Content\Images\EditorThumbnails\System-thumbnail.png" />
     <Content Include="Content\Images\empty-shopping-cart.png" />
     <Content Include="Content\Images\paymentMethods\pay by credit card.png" />
     <Content Include="Content\Images\paymentMethods\telefonbetaling.png" />
@@ -358,7 +367,9 @@
     <Content Include="Resources\LanguageFiles\_ReadMe.txt" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\app\Search\AutoCompleteContoller.js" />
+    <Content Include="Scripts\app\shopping\TrackingService.js" />
     <Content Include="Scripts\app\shopping\ArticleService.js" />
+    <Content Include="Scripts\app\shopping\BuyController.js" />
     <Content Include="Scripts\app\shopping\HandleCartService.js" />
     <Content Include="Scripts\app\shopping\CartController.js" />
     <Content Include="Scripts\app\shopping\SimilarProductsController.js" />
@@ -560,6 +571,10 @@
     <Content Include="Views\Shared\DisplayTemplates\VideoFile.cshtml" />
     <Content Include="Views\GenericPayment\Index.cshtml" />
     <Content Include="Views\Shared\Error\_EmptyCartError.cshtml" />
+    <Content Include="Views\ArticleWithSidebarPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\TitleBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\BannerBlock.cshtml" />
+    <Content Include="Views\BannerBlock\_bannerblock.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -639,13 +654,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
     </Reference>
-    <Reference Include="EPiCode.Commerce.RestService, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EPiCode.Commerce.RestApi, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EPiCode.Commerce.RestApi.1.0.3.0\lib\net45\EPiCode.Commerce.RestService.dll</HintPath>
+      <HintPath>..\..\packages\EPiCode.Commerce.RestApi.1.1.12\lib\net45\EPiCode.Commerce.RestApi.dll</HintPath>
     </Reference>
-    <Reference Include="EPiCode.GoogleAnalytics.UniversalTracking, Version=1.0.5428.38538, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EPiCode.GoogleAnalytics.UniversalTracking, Version=1.1.5555.1132, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\EPiCode.GoogleAnalytics.UniversalTracking.1.0.5428.38538\lib\net45\EPiCode.GoogleAnalytics.UniversalTracking.dll</HintPath>
+      <HintPath>..\..\packages\EPiCode.GoogleAnalytics.UniversalTracking.1.1.5555.1132\lib\net45\EPiCode.GoogleAnalytics.UniversalTracking.dll</HintPath>
     </Reference>
     <Reference Include="EPiCode.SqlBlobProvider, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -1088,22 +1103,26 @@
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\RequireSSLAttribute.cs" />
+    <Compile Include="Business\Search\FindProductSearchProvider.cs" />
     <Compile Include="Business\SiteConfiguration.cs" />
     <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\Tools.cs" />
     <Compile Include="Business\UIDescriptor\CatalogContentUiDescriptor.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Business\UI\CommerceManagerNavigator.cs" />
     <Compile Include="Controllers\Admin\DeveloperToolsController.cs" />
     <Compile Include="Controllers\BasePartialContentController.cs" />
     <Compile Include="Business\Payment\DibsPaymentProcessingResult.cs" />
     <Compile Include="Business\Payment\DibsPaymentProcessor.cs" />
+    <Compile Include="Controllers\ArticleWithSidebarPageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\GenericPaymentController.cs" />
     <Compile Include="Controllers\FashionProductPartialController.cs" />
     <Compile Include="Business\ClientTracking\GoogleAnalyticsTracker.cs" />
     <Compile Include="Business\Payment\IDibsPaymentProcessor.cs" />
     <Compile Include="Business\ClientTracking\IGoogleAnalyticsTracker.cs" />
+    <Compile Include="Controllers\BannerBlockController.cs" />
     <Compile Include="IHttpContextProvider.cs" />
     <Compile Include="Business\Payment\IPaymentCompleteHandler.cs" />
     <Compile Include="Controllers\IReceiptViewModelBuilder.cs" />
@@ -1115,7 +1134,10 @@
     <Compile Include="Extensions\UrlExtentions.cs" />
     <Compile Include="HttpContextIdentityProvider.cs" />
     <Compile Include="IIdentityProvider.cs" />
+    <Compile Include="Models\Blocks\BannerBlock.cs" />
+    <Compile Include="Models\Blocks\TitleBlock.cs" />
     <Compile Include="Models\Files\VideoFile.cs" />
+    <Compile Include="Models\PageTypes\ArticleWithSidebarPage.cs" />
     <Compile Include="Models\PageTypes\Payment\BasePaymentPage.cs" />
     <Compile Include="Models\PageTypes\Payment\GenericPaymentPage.cs" />
     <Compile Include="Models\ViewModels\Email\NotificationSettings.cs" />

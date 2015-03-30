@@ -9,8 +9,12 @@
         <h2 class="name">{{ product.DisplayName }}</h2>
         <div class="price">
             {{ product.DefaultPrice }}
-			<span class="member-price" ng-show="product.CustomerClubPrice">@Html.Translate("/common/product/member_price"): {{product.CustomerClubPrice}}</span>
-			<span class="sale-price" ng-show="product.DiscountedPrice">@Html.Translate("/common/product/sale_price"): {{product.DiscountedPrice}}</span>
+            <span class="member-price" ng-show="product.CustomerClubPrice">@Html.Translate("/common/product/member_price"): {{product.CustomerClubPrice}}</span>
+            <span class="sale-price" ng-show="product.DiscountedPrice">@Html.Translate("/common/product/sale_price"): {{product.DiscountedPrice}}</span>
+            &nbsp;
+        </div>
+        <div class="add-to-cart-form" ng-controller="BuyController" ng-init="initWithProduct(product)">
+            <input type="button" class="btn btn-success btn-sm" value="@Html.Translate("/common/product/add_to_cart")" ng-click="addToCartDefault()" />
         </div>
     </div>
 </div>

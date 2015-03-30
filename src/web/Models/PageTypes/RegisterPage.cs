@@ -19,10 +19,10 @@ namespace OxxCommerceStarterKit.Web.Models.PageTypes
 	[ContentType(GUID = "5dbe7b83-38e0-43f6-9663-0611829f7949",
 	 DisplayName = "Register user page",
 	 Description = "Settings for the register user page and welcome email",
-	 GroupName = "Commerce System Pages",
+     GroupName = WebGlobal.GroupNames.Specialized,
 	 AvailableInEditMode = false, 
 	 Order = 100)]
-	[SiteImageUrl]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Social)]
 	public class RegisterPage : SitePage
 	{
 		[Display(

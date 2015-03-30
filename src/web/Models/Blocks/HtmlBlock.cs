@@ -16,7 +16,9 @@ using OxxCommerceStarterKit.Core.Attributes;
 
 namespace OxxCommerceStarterKit.Web.Models.Blocks
 {
-	[ContentType(GUID = "c26c3249-e6ec-4850-8bc5-cd70e4f547b2")]
+	[ContentType(
+        GUID = "c26c3249-e6ec-4850-8bc5-cd70e4f547b2",
+        GroupName="Content")]
 	[SiteImageUrl]
 	public class HtmlBlock : SiteBlockData
 	{

@@ -5,12 +5,14 @@
 			<add>
 				<Tab id="navTabOrderManagement" text="{OrderStrings:Order_Management}" order="80"  contentType="default" imageUrl="~/Apps/Order/images/module.png" configUrl="" enableHandler="Mediachase.Commerce.Manager.Apps.Order.CommandHandlers.OrderTabEnableHandler, Mediachase.ConsoleManager" enableHandler2="Mediachase.Commerce.Manager.CommandHandlers.PermissionEnableHandler, Mediachase.ConsoleManager" permissions="order:tabviewpermission">
 					<Link id="Order_OrderSearch" text="{SharedStrings:Order_Search}" order="10" iconUrl="~/Apps/Shell/styles/images/search.gif" iconCss="treeIcon" command="cmdOrderSearch" permissions="order:mng:view"/>
-					<Link id="Order_PurchaseOrders" text="{SharedStrings:Purchase_Orders}" order="20" expanded="true" iconUrl="~/Apps/Order/images/PurchaseOrders.png" iconCss="treeIcon" command="cmdOrderPurchaseOrders" permissions="order:mng:view">
+                    <Link id="Order_PurchaseOrders" text="{SharedStrings:Purchase_Orders}" order="20" expanded="true" type="PurchaseOrders" iconUrl="~/Apps/Order/images/PurchaseOrders.png" iconCss="treeIcon" command="cmdOrderPurchaseOrders" treeLoaderPath="~/Apps/Order/Tree/TreeSource.aspx" permissions="order:mng:view"/>
+                    <!--<Link id="Order_PurchaseOrders" text="{SharedStrings:Purchase_Orders}" order="20" expanded="true" iconUrl="~/Apps/Order/images/PurchaseOrders.png" iconCss="treeIcon" command="cmdOrderPurchaseOrders" permissions="order:mng:view">
 						<Link id="Order_PO-TodayOrders" text="{SharedStrings:Today}" order="10" iconUrl="" iconCss="" command="cmdOrderPurchaseOrdersToday" permissions="order:mng:view"/>
 						<Link id="Order_PO-WeekOrders" text="{SharedStrings:This_Week}" order="20" iconUrl="" iconCss="" command="cmdOrderPurchaseOrdersThisWeek" permissions="order:mng:view"/>
 						<Link id="Order_PO-MonthOrders" text="{SharedStrings:This_Month}" order="30" iconUrl="" iconCss="" command="cmdOrderPurchaseOrdersThisMonth" permissions="order:mng:view"/>
 						<Link id="Order_PO-AllOrders" text="{SharedStrings:All}" order="40" iconUrl="" iconCss="" command="cmdOrderPurchaseOrdersAll" permissions="order:mng:view"/>
-					</Link>
+            <Link id="Markets_Markets" text="{SharedStrings:Markets}" order="120" iconUrl="" iconCss="treeIcon" type="Markets" command="cmdMarketsMarketList" treeLoaderPath="~/Apps/Order/MarketTree/TreeSource.aspx" permissions="order:mng:view"/>
+					</Link>-->
 					<Link id="Order_PurchaseOrdersByStatus" text="{SharedStrings:Purchase_Orders_By_Status}" order="30" type="PurchaseOrdersByStatus" iconUrl="" iconCss="treeIcon" command="cmdOrderPurchaseOrdersByStatus" treeLoaderPath="~/Apps/Order/Tree/TreeSource.aspx" permissions="order:mng:view"/>
 					<Link id="Order_Carts" text="{SharedStrings:Carts}" order="40" iconUrl="" iconCss="treeIcon" command="cmdOrderCarts" permissions="order:mng:view">
 						<Link id="Order_CART-TodayOrders" text="{SharedStrings:Today}" order="10" iconUrl="" iconCss="" command="cmdOrderCartsToday" permissions="order:mng:view"/>
@@ -32,11 +34,12 @@
 						<Link id="Order_Returns" text="{SharedStrings:Returns}" order="90" iconUrl="~/Apps/Order/images/Remove.png" iconCss="treeIcon" command="cmdOrderReturns" permissions="order:mng:return:receiving"/>
             <Link id="Order_Pickup" text="{SharedStrings:Pickup_Orders}" order="100" expanded="false" iconUrl="" iconCss="" command="cmdOrderPickups" permissions="order:mng:shipment:view"/>
 					</Link>
+        
 				</Tab>
 			</add>
 		</Tabs>
 		<Commands>
-			<add>
+			<add>   
 				<Command id="cmdOrderSearch">
 					<CommandType>ClientAction</CommandType>
 					<ClientScript>CSManagementClient.ChangeView('Order', 'OrderSearch-List', 'class=PurchaseOrder')</ClientScript>

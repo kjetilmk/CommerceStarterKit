@@ -25,12 +25,14 @@ namespace OxxCommerceStarterKit.Web.Business.Analytics
         public UniversalAnalyticsInteraction() : 
             base("overridden-interaction", true, Guid.NewGuid().ToString())
         {
+            ClearWhenContextChanged = true;
         }
 
         public UniversalAnalyticsInteraction(string script)
             : base("overridden-interaction", true, Guid.NewGuid().ToString())
         {
             Script = script;
+            ClearWhenContextChanged = true;
         }
 
 

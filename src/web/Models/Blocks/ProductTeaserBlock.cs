@@ -17,8 +17,12 @@ using OxxCommerceStarterKit.Core.Attributes;
 
 namespace OxxCommerceStarterKit.Web.Models.Blocks
 {
-	[ContentType(GUID = "eb436f04-d5e7-4f0d-95f6-173474db1742")]
-	[SiteImageUrl]
+    [ContentType(GUID = "eb436f04-d5e7-4f0d-95f6-173474db1742",
+        DisplayName = "Product Teaser",
+        Description = "Show product information for one product with configuration options",
+        GroupName = "Commerce"
+        )]
+    [SiteImageUrl(thumbnail: EditorThumbnail.Commerce)]
 	public class ProductTeaserBlock : SiteBlockData
 	{
 		[Display(

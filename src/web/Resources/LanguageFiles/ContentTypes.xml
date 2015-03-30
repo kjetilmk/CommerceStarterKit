@@ -466,7 +466,7 @@
 	<language name="English" id="en">
 		<contenttypes>
 			<articlepage>
-				<name>Article Page</name>
+				<name>Article</name>
 				<description>Content area on top, title, intro, text and a content area at the bottom</description>
 				<properties>
 					<bodycontent>
@@ -664,7 +664,7 @@
 				</properties>
 			</notificationsettings>
 			<htmlblock>
-				<name>HTML text block</name>
+				<name>HTML Text</name>
 				<description>A block where you can enter HTML text</description>
 				<properties>
 					<html>
@@ -673,7 +673,7 @@
 				</properties>
 			</htmlblock>
 			<onetwocolumnsblock>
-				<name>1+2 columns block</name>
+				<name>1 + 2 columns</name>
 				<description>2 columns - 33% and 66%</description>
 				<properties>
 					<leftcolumn>
@@ -685,8 +685,8 @@
 				</properties>
 			</onetwocolumnsblock>
 			<pagelistblock>
-				<name>List of articles and blogs</name>
-				<description>Advanced block to get list of articles and blogs</description>
+				<name>List of articles</name>
+				<description>Advanced listing block for articles</description>
 				<properties>
 					<count>
 						<caption>Max number of articles</caption>
@@ -709,7 +709,7 @@
 				</properties>
 			</pagelistblock>
 			<productteaserblock>
-				<name>Product teaser block</name>
+				<name>Product Teaser</name>
 				<description>A block with image and text promoting a product.</description>
 				<properties>
 					<image>
@@ -736,7 +736,7 @@
 				</properties>
 			</productteaserblock>
 			<sliderblock>
-				<name>Image carusel</name>
+				<name>Image Carusel</name>
 				<description>Slides images from right to left</description>
 				<properties>
 					<items>
@@ -748,7 +748,7 @@
 				</properties>
 			</sliderblock>
 			<socialmedialinkblock>
-				<name>Social media block</name>
+				<name>Social Media</name>
 				<description>Used in the footer to show icon and link to social media (Facebook, Twitter, Instagram, YouTube)</description>
 				<properties>
 					<title>
@@ -779,7 +779,7 @@
 				</properties>
 			</buttonwithhelplinkblock>
 			<twocolumnsblock>
-				<name>2 columns block</name>
+				<name>2 columns</name>
 				<description>2 columns - 50%</description>
 				<properties>
 					<leftcolumn>
@@ -791,8 +791,8 @@
 				</properties>
 			</twocolumnsblock>
 			<vimeoblock>
-				<name>Vimeo video block</name>
-				<description>Shows embed video from Vimeo</description>
+				<name>Vimeo video</name>
+				<description>Shows video from Vimeo</description>
 				<properties>
 					<vimeovideolink>
 						<caption>Link to video page on Vimeo</caption>
@@ -809,8 +809,8 @@
 				</properties>
 			</vimeoblock>
 			<youtubeblock>
-				<name>YouTube video block</name>
-				<description>Shows embed video from YouTube</description>
+				<name>YouTube video</name>
+				<description>Shows video from YouTube</description>
 				<properties>
 					<youtubevideolink>
 						<caption>Link to video page on YouTube</caption>
@@ -827,8 +827,8 @@
 				</properties>
 			</youtubeblock>
 			<viddlerblock>
-				<name>Viddler video block</name>
-				<description>Viser embed video fra Viddler</description>
+				<name>Viddler video</name>
+				<description>Shows Viddler video</description>
 				<properties>
 					<viddleervideolink>
 						<caption>Link to video page on Viddler</caption>
@@ -845,7 +845,7 @@
 				</properties>
 			</viddlerblock>
 			<fashionproductcontent>
-				<name>Fashion Product</name>
+				<name>Fashion product</name>
 				<description>Product with editable fields</description>
 				<properties>
 					<descriptivecolor>
