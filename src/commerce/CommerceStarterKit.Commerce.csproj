@@ -3670,7 +3670,7 @@
       <HintPath>..\..\packages\EPiServer.CommerceManager.8.7.1\lib\net45\ComponentArt.Web.UI.dll</HintPath>
     </Reference>
     <Reference Include="EPiCode.CommerceManager.Enhancements">
-      <HintPath>..\..\packages\EPiCode.CommerceManager.Enhancements.0.1.26.0\lib\EPiCode.CommerceManager.Enhancements.dll</HintPath>
+      <HintPath>..\..\packages\EPiCode.CommerceManager.Enhancements.1.0.1.0\lib\EPiCode.CommerceManager.Enhancements.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer, Version=7.19.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
