@@ -109,19 +109,31 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
                 var referenceConverter = ServiceLocator.Current.GetInstance<ReferenceConverter>();
                 var languageSelectionFactory = ServiceLocator.Current.GetInstance<LanguageSelectorFactory>();
                 var routingSegmentLoader = ServiceLocator.Current.GetInstance<IRoutingSegmentLoader>();
+                var contentVersionRepo = ServiceLocator.Current.GetInstance<IContentVersionRepository>();
+                var urlSegmentRouter = ServiceLocator.Current.GetInstance<IUrlSegmentRouter>();
+                var contentLanguageSettingsHandler = ServiceLocator.Current.GetInstance<IContentLanguageSettingsHandler>();
 
                 var firstCatalog =
                     contentLoader.GetChildren<CatalogContent>(referenceConverter.GetRootLink()).FirstOrDefault();
+
+                var partialRouter = new HierarchicalCatalogPartialRouter(
+                    () => SiteDefinition.Current.StartPage,
+                    commerceRoot: firstCatalog,
+                    supportSeoUri: false,
+                    contentLoader: contentLoader,
+                    languageSelectorFactory: languageSelectionFactory,
+                    routingSegmentLoader: routingSegmentLoader,
+                    contentVersionRepository: contentVersionRepo,
+                    urlSegmentRouter: urlSegmentRouter,
+                    contentLanguageSettingsHandler: contentLanguageSettingsHandler);
+
+                var partialRouter2 = new HierarchicalCatalogPartialRouter(
+                    () => SiteDefinition.Current.StartPage, firstCatalog, false);
+
                 if (firstCatalog != null)
                 {
 
-                    routes.RegisterPartialRouter(
-                        partialRouter: new HierarchicalCatalogPartialRouter(() => SiteDefinition.Current.StartPage,
-                            commerceRoot: firstCatalog,
-                            supportSeoUri: false,
-                            contentLoader: contentLoader,
-                            languageSelectorFactory: languageSelectionFactory,
-                            routingSegmentLoader: routingSegmentLoader));
+                    routes.RegisterPartialRouter(partialRouter2);
                 }
             }
         }

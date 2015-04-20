@@ -233,7 +233,7 @@
 													<td>
 														<asp:UpdatePanel runat="server" ID="upAddressEdit" ChildrenAsTriggers="true" UpdateMode="Conditional">
 															<ContentTemplate>
-																<cm:AddressEdit runat="server" ID="ctrlEdit" />
+																<cm:AddressEdit runat="server" ID="ctrlEdit" IsShippingAddress="true" />
 															</ContentTemplate>
 														</asp:UpdatePanel>
 													</td>

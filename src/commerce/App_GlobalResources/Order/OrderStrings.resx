@@ -1227,7 +1227,7 @@
   <data name="Shipping_Discount" xml:space="preserve">
     <value>Shipping Discount</value>
   </data>
-    <data name="Shipping_Tax" xml:space="preserve">
+  <data name="Shipping_Tax" xml:space="preserve">
     <value>Shipping Tax</value>
   </data>
   <data name="Shipping_Discount_Total" xml:space="preserve">
@@ -1289,5 +1289,8 @@
   </data>
   <data name="Warehouse_Pickup_Fulfillment" xml:space="preserve">
     <value>Customer Pickup at {0}</value>
+  </data>
+  <data name="Warehouse_PickFulfillment_Already_Exist" xml:space="preserve">
+    <value>Order already contains other pick-up warehouse.</value>
   </data>
 </root>

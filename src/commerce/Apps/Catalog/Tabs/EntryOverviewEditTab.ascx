@@ -88,7 +88,7 @@
         <asp:RequiredFieldValidator ID="CodeRequiredValidator" runat="server" ControlToValidate="CodeText" ErrorMessage="<%$ Resources:SharedStrings, Code_Required %>" Display="Dynamic"></asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="CodeValidation" runat="server"
             CssClass="error" Enabled="true" EnableClientScript="false" ControlToValidate="CodeText"
-            Display="Dynamic" ValidationExpression="^[A-Za-z0-9\-_()\.\s]*$"
+            Display="Dynamic" 
             ErrorMessage='<%$ Resources:SharedStrings, Code_Validation %>' />
         <asp:CustomValidator runat="server" id="custPrimeCheck"
             ControlToValidate="CodeText"

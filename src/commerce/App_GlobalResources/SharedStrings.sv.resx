@@ -2097,7 +2097,7 @@
     <value>Egen sida</value>
   </data>
   <data name="Code_Validation" xml:space="preserve">
-    <value>Du kan bara använda blanksteg och följande tecken i kod: a-z, 0-9, -, _, ., (, ).</value>
+    <value>Du kan bara använda följande tecken i kod: "a"-"z", "0"-"9", "-", "_", ".", "(", ")", "," och blanksteg.</value>
   </data>
   <data name="Default_Country" xml:space="preserve">
     <value>Standardland</value>
@@ -2122,5 +2122,11 @@
   </data>
   <data name="System_Name_MaxLength" xml:space="preserve">
     <value>&lt;br/&gt;&lt;b&gt;Systemnamn&lt;/b&gt; får innehålla maximalt 29 tecken.</value>
+  </data>
+  <data name="Enabled_Markets" xml:space="preserve">
+    <value>Aktiva Marknader</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Begränsningar</value>
   </data>
 </root>

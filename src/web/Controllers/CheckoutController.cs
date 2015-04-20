@@ -234,7 +234,7 @@ namespace OxxCommerceStarterKit.Web.Controllers
             {
                 Tuple<decimal, string> quantity;
 
-                if (summary.TryGetValue(i.CatalogEntryId, out quantity))
+                if (summary.TryGetValue(i.Code, out quantity))
                 {
                     quantity = new Tuple<decimal, string>(quantity.Item1 + i.Quantity, quantity.Item2);
                 }
@@ -243,7 +243,7 @@ namespace OxxCommerceStarterKit.Web.Controllers
                     quantity = new Tuple<decimal, string>(i.Quantity, i.DisplayName);
                 }
 
-                summary[i.CatalogEntryId] = quantity;
+                summary[i.Code] = quantity;
             }
 
             foreach (var p in summary)

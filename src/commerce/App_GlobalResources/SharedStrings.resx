@@ -142,7 +142,7 @@
     <value>&lt;b&gt;Required Field Missing&lt;/b&gt;&lt;br /&gt;A code is required.</value>
   </data>
   <data name="Code_Validation" xml:space="preserve">
-    <value>Only the following characters are allowed for code: a-z, 0-9, -, _, ., (, ), and white space.</value>
+    <value>Only the following characters are allowed for code: "a"-"z", "0"-"9", "-", "_", ".", "(", ")", "," and white space.</value>
   </data>
   <data name="Country_Code" xml:space="preserve">
     <value>Country Code</value>
@@ -2222,5 +2222,11 @@
   </data>
   <data name="Restricted_Markets" xml:space="preserve">
     <value>Restricted Markets</value>
+  </data>
+  <data name="Enabled_Markets" xml:space="preserve">
+    <value>Enabled Markets</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
   </data>
 </root>

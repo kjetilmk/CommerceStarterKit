@@ -34,4 +34,13 @@
 	<DockItems>
 	</DockItems>
 </IbnWebControls:McDock>
-<core:EcfListViewControl ID="MyListView" runat="server" AppId="Order" ViewId="Shipment-List-Released" ShowTopToolbar="true"></core:EcfListViewControl>
+<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" TypeName="Mediachase.Commerce.Manager.Apps.Order.ShipmentList"
+        EnablePaging="true" SelectCountMethod="GetTotalOrderCount" SelectMethod="FindOrder" SortParameterName="orderBy" 
+        StartRowIndexParameterName="startingRecord" MaximumRowsParameterName="recordsToRetrieve" >
+    <SelectParameters>
+        <asp:ControlParameter Name="selectedWarehouseCode" ControlID="Warehouse" PropertyName="SelectedValue" />
+        <asp:QueryStringParameter Name="selectedPickListId" QueryStringField="PickListId" />
+        <asp:QueryStringParameter Name="shipmentStatus" QueryStringField="status" DefaultValue="Released" />
+    </SelectParameters>
+</asp:ObjectDataSource>
+<core:EcfListViewControl ID="MyListView" runat="server" DataSourceID="ObjectDataSource1" AppId="Order" ViewId="Shipment-List-Released" ShowTopToolbar="true"></core:EcfListViewControl>

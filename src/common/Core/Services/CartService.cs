@@ -147,7 +147,7 @@ namespace OxxCommerceStarterKit.Core.Services
 			CartHelper ch = new CartHelper(name);
 			string messages = string.Empty;
 
-			var item = ch.LineItems.FirstOrDefault(i => i.CatalogEntryId == product.Code);
+            var item = ch.LineItems.FirstOrDefault(i => i.Code == product.Code);
 
 			if (item != null)
 			{

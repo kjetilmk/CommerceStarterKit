@@ -34,7 +34,7 @@
 					<Button id="CancelShipment" text="{OrderStrings:Cancel_Shipment}" commandName="btn_CancelShipment" width="170" disableMode="true" permissions="order:mng:edit"></Button>
 				</ButtonSet>
         <ButtonSet placeName="CompletePickup">
-          <Button id="CompletePickupOrder" text="{OrderStrings:Pickup_Orders}" commandName="btn_CompletePickupOrder" width="170" disableMode="true" permissions="order:mng:shipment:edit"/>
+          <Button id="CompletePickupOrder" text="{OrderStrings:Pickup_Orders}" commandName="btn_CompletePickupOrder" width="170" disableMode="true" permissions="order:mng:shipment:complete"/>
         </ButtonSet>
 				<ButtonSet placeName="OrderView">
 					<Button id="CreateReturn" text="{OrderStrings:Create_Return}" commandName="cmdOrderCreateEditReturn" width="170" disableMode="true" permissions="order:mng:return:create"></Button>

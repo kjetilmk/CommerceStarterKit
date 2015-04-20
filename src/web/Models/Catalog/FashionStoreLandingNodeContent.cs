@@ -27,7 +27,8 @@ namespace OxxCommerceStarterKit.Web.Models.Catalog
 
 
 		[Display(Name = "Size guide", Order = 10)]
-		[AllowedTypes(new Type[] { typeof(ArticlePage), typeof(BlogPage) })]
+		// [AllowedTypes(new Type[] { typeof(ArticlePage), typeof(BlogPage) })]
+        /// TODO: Convert to ContentReference
 		public virtual Url SizeGuide { get; set; }
     }
 }

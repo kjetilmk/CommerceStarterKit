@@ -26,6 +26,8 @@
 		<td>
 			<asp:DropDownList runat="server" ID="WarehouseList" AutoPostBack="true" OnSelectedIndexChanged="WarehouseList_SelectedIndexChanged">
 			</asp:DropDownList>
+			<asp:CustomValidator runat="server" ID="WarehouseValidator" ControlToValidate="WarehouseList"
+								ErrorMessage="<%$ Resources:OrderStrings, Warehouse_PickFulfillment_Already_Exist %>" OnServerValidate="WarehouseList_Validate" CssClass="ErrorRed"></asp:CustomValidator>
 		</td>
 	</tr>
     <tr runat="server" id="PackageItemsRow">
