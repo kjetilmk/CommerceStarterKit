@@ -23,6 +23,7 @@ using EPiServer.Find.Framework;
 using EPiServer.Find.Framework.Statistics;
 using EPiServer.Find.Helpers;
 using EPiServer.Logging;
+using OxxCommerceStarterKit.Web.Business.FacetRegistry;
 using OxxCommerceStarterKit.Web.Models.FindModels;
 
 namespace OxxCommerceStarterKit.Web.Api
@@ -68,8 +69,9 @@ namespace OxxCommerceStarterKit.Web.Api
             public List<string> SelectedGrapeFacets { get; set; }
             public List<string> SelectedCountryFacets { get; set; } 
             public string SearchTerm { get; set; }
-        }
+            public List<FacetDefinition> Facets { get; set; } 
 
+        }
 
         [HttpPost]
         public object GetProducts(ProductSearchData productSearchData)
@@ -536,6 +538,8 @@ namespace OxxCommerceStarterKit.Web.Api
             return filterBuilder;
         }
     }
+
+
 
     public static class SearchExtensions
     {

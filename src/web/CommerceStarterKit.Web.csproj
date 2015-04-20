@@ -1050,6 +1050,9 @@
     <Compile Include="Api\AutocompleteSearchController.cs" />
     <Compile Include="Api\BaseApiController.cs" />
     <Compile Include="Api\DeliveryLocationsController.cs" />
+    <Compile Include="Business\FacetRegistry\FacetDefinition.cs" />
+    <Compile Include="Business\FacetRegistry\FacetListDefinition.cs" />
+    <Compile Include="Business\FacetRegistry\FacetRangeDefinition.cs" />
     <Compile Include="Api\StreetAddress.cs" />
     <Compile Include="Api\TagController.cs" />
     <Compile Include="Api\CartController.cs" />
@@ -1082,6 +1085,9 @@
     <Compile Include="Business\CurrentMarketFromStartPage.cs" />
     <Compile Include="Business\CurrentMarketProfile.cs" />
     <Compile Include="Business\Delivery\DeliveryLocation.cs" />
+    <Compile Include="Business\FacetRegistry\FacetRegistry.cs" />
+    <Compile Include="Business\FacetRegistry\ConfigureFacetRegistry.cs" />
+    <Compile Include="Business\FacetRegistry\InitializeFacetRegistry.cs" />
     <Compile Include="Business\Initialization\CatalogEventListener.cs" />
     <Compile Include="Business\Initialization\CommerceCachePrimer.cs" />
     <Compile Include="Business\FindCatalogIndexingChangeNotificationProcessor.cs" />

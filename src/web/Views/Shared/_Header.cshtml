@@ -10,6 +10,16 @@
     {
         selectedLanguage = new ChromeLanguageInfo() { DisplayName = "Unknown", Selected = true, Url = "/", EditUrl = "/" };
     }
+    var logoImageUrl = Model.LogoImageUrl.ToString();
+    // We need to make sure we size the logo appropriately in edit mode too
+    if (logoImageUrl.Contains("?"))
+    {
+        logoImageUrl += "&preset=imagenarrow";
+    }
+    else
+    {
+        logoImageUrl += "?preset=imagenarrow";
+    }
 
 }
 
@@ -23,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="@Model.HomePageUrl"><img src="@Model.LogoImageUrl?preset=imagenarrow" class="img-responsive" alt="Logo"></a>
+            <a class="navbar-brand" href="@Model.HomePageUrl"><img src="@logoImageUrl" class="img-responsive" alt="Logo" @Html.EditAttributes("LogoImage")></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="mainmenu-top">
