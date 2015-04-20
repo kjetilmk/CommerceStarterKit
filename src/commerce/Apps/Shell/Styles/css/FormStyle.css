@@ -48,6 +48,13 @@ BUTTON.GRAD
 	padding-top: 2px;
 }
 
+.DataForm th.FormSectionHeader
+{
+	font-size: 12pt;
+	font-weight: bold;
+    padding: 10px 0;
+}
+
 .DataFormContainer
 {
 	margin: 5px 5px 5px 5px;

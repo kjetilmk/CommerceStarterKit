@@ -2097,7 +2097,7 @@
     <value>Tilpasset side</value>
   </data>
   <data name="Code_Validation" xml:space="preserve">
-    <value>Bare følgende tegn er tillatt for kode: a-z, 0-9, -, _, ., (, ), og hvitt mellomrom.</value>
+    <value>Bare følgende tegn er tillatt for kode: "a"-"z", "0"-"9", "-", "_", ".", "(", ")", "," og hvitt mellomrom.</value>
   </data>
   <data name="Default_Country" xml:space="preserve">
     <value>Standard land</value>
@@ -2122,5 +2122,11 @@
   </data>
   <data name="System_Name_MaxLength" xml:space="preserve">
     <value>&lt;br/&gt;&lt;b&gt;Systemnavnet&lt;/b&gt; må ha færre enn 30 tegn.</value>
+  </data>
+  <data name="Enabled_Markets" xml:space="preserve">
+    <value>Enabled Markets</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
   </data>
 </root>

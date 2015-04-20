@@ -1,11 +1,10 @@
-/* Extra class */
+﻿/* Extra class */
 body {
 	background-color: #fbfbfb;
 	color: #000;
-    
-	font: 85%/1.231 "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Sans-Serif;
+    font: 75%/1.231 "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Sans-Serif;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Sans-Serif;
-	font-size:85%;
+	font-size:70%;
    	text-align: left; /* LTR */
 }
 
@@ -16,7 +15,7 @@ body {
 
 body.view, div.LayoutBase
 {
-	background-color: #fff;
+	background-color:#F4F4F4;
 }
 
 .epi-ecf-toolbar,
@@ -40,15 +39,15 @@ td.x-toolbar td.x-btn-over td.x-btn-center,
 td.CommonListHeaderLeftMost,
 #menu_panel .x-panel-header
 {
-	/* _background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px; */
-	background: #F8F8F8 none; /* IE6 */
+	background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background: #F8F8F8 none; /* IE6 */
 	border-bottom: 1px solid #8C8C8C;
 }
 .x-toolbar,
 div.x-toolbar
 {
-	/* _background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px; */
-	background: #fff none; /* IE6 */
+	background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background: #F8F8F8 none; /* IE6 */
 	border: none;
 	padding: 0;
 }
@@ -57,8 +56,8 @@ div.x-toolbar
 div.x-btn-wrap .x-btn .x-btn-over,
 div.x-toolbar .x-btn-over .x-btn-center
 {
-	/* _background: #eee url(../Resources/Gradients.png) repeat-x scroll left -2300px; */
-	background: #eee none;
+	background: #eee url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background: #eee none;
 	border: 1px solid #8D8D8D;
 }
 .x-toolbar .x-btn-over .x-btn-left,
@@ -86,14 +85,14 @@ td.x-btn-center
 .x-toolbar .x-btn-over .x-btn-center,
 div.x-toolbar .x-btn-over .x-btn-center
 {
-	/*background: #eee url(../Resources/Gradients.png) repeat-x left -5400px;*/
-	background: #eee none;
+	background: #eee url(../Resources/Gradients.png) repeat-x left -5400px;
+	_background: #eee none;
     border: 1px solid #8D8D8D;
 }
 .epi-ecf-toolbar-exp
 {
-	/*background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px;*/
-	background: #F8F8F8 none; /* IE6 */
+	background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background: #F8F8F8 none; /* IE6 */
 	border: 1px solid #8C8C8C;
 }
 
@@ -113,8 +112,8 @@ div.x-mask-loading,
 div.x-tree-node .x-tree-selected
 {
     border: 1px solid #8D8D8D;
-    /*background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px;*/
-	background: #F8F8F8 none;	/* IE6 */
+    background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background: #F8F8F8 none;	/* IE6 */
 	
 }
 
@@ -124,8 +123,8 @@ div.x-menu,
 td.FileUploadFilesForSaving
 {
 	 border: 1px solid #8D8D8D;
-    /*background: #F8F8F8 url(../Resources/GradientsSubMenu.png) repeat-x scroll left -8800px;*/
-	background: #F8F8F8 none;	/* IE6 */
+    background: #F8F8F8 url(../Resources/GradientsSubMenu.png) repeat-x scroll left -8800px;
+	_background: #F8F8F8 none;	/* IE6 */
 }
 
 div.x-layer.x-menu
@@ -139,8 +138,8 @@ div.x-layer.x-menu
 div.x-tree-node-over,
 div.x-toolbar .x-btn-menu-active .x-btn-center
 {
-	/*background: #eee url(../Resources/Gradients.png) repeat-x left -5400px;*/
-	background: #eee none;
+	background: #eee url(../Resources/Gradients.png) repeat-x left -5400px;
+	_background: #eee none;
     border: 1px solid #8D8D8D;
 }
 
@@ -203,22 +202,22 @@ table.ibn-stylebox2,
 #McCommandHandlerFramePopupDiv .modalPopupWindow,
 div.modalPopupWindow
 {
-	border: 1px solid #ccc;
+	border: 1px solid #8b8b8b;
 }
 
 div.noBottomBorder,
 td.noBottomBorder
 {
-	border-top: 1px solid #ccc;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+	border-top: 1px solid #8b8b8b;
+	border-left: 1px solid #8b8b8b;
+	border-right: 1px solid #8b8b8b;
 }
 
 div.serverGridBody
 {
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #8b8b8b;
+	border-right: 1px solid #8b8b8b;
+	border-bottom: 1px solid #8b8b8b;
 }
 
 div.serverGridHeaderInner
@@ -243,18 +242,20 @@ div.serverGridHeaderInner a:hover
 div.serverGridHeader,
 div.noBottomBorder
 {	
-	background: #eee none; /* IE6 */
+	background: #F0F0F0 url(../Resources/Gradients.png) repeat-x scroll left -5400px;
+	_background: #eee none; /* IE6 */
 }
 
 div.serverGridFooter
 {	
-	background: #eee none; /* IE6 */
+	background: #F0F0F0 url(../Resources/Gradients.png) repeat-x scroll left -5400px;
+	_background: #eee none; /* IE6 */
 }
 
 div.GridFooter
 {
-	/* background-color: Transparent; */
-	/* border-top:1px solid #8b8b8b; */
+	background-color: Transparent;
+	border-top:1px solid #8b8b8b;
 }
 
 .serverGridSelectedRow,
@@ -329,7 +330,7 @@ div.x-panel-header
 .x-border-layout-ct,
 div.x-border-layout-ct
 {
-	background: #fff;
+	background: #C8C7C7;
 }
 
 #menu_panel .x-panel-header {
@@ -363,11 +364,11 @@ input[type='submit']
 {
 	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
 	Color: #1D1D1D;
-	/* background-color: #F8F8F8; */
-	/* background-image: url(../Resources/Gradients.png); */
+	background-color: #F8F8F8;
+	background-image: url(../Resources/Gradients.png);
 	background-position: left -5100px;
-	border: 1px solid #ccc;
-	/* text-shadow: 0 1px 0 #FFF; */
+	border: 1px solid #4E4E4E;
+	text-shadow: 0 1px 0 #FFF;
 }
 
 button[disabled]
@@ -447,7 +448,10 @@ div.closeDivStyle
 .x-layout-split,
 div.x-layout-split
 {
-	background-color:#fff;
+	background-color:#C8C7C7;
+	background-image: url("Resources/Drag.gif");
+	background-position: center center;
+	background-repeat: repeat-y;
 	z-index:1001;
 }
 
@@ -466,7 +470,8 @@ li.x-menu-list-item
 div.x-menu-item-active,
 li.x-menu-item-active
 {	
-	background: #eee none;
+	background: #eee url(../Resources/Gradients.png) repeat-x left -5400px;
+	_background: #eee none;
     border: 1px solid #8D8D8D;
     font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
 	Color: #1D1D1D;
@@ -525,8 +530,8 @@ div.ibn-toolbar,
 td.ibn-propertysheet,
 div.ibn-propertysheet td
 {
-	/* font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif; */
-	/* font-size: 1em; */
+	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
+	font-size: 11px;
 	Color: #1D1D1D;
 	text-decoration: none;
 }
@@ -636,8 +641,8 @@ td.ibn-stylebox
 td.tab,
 td.tabSelected
 {
-	/*background:#dcdcdc url(../Resources/Gradients.png) repeat-x left -2300px;*/
-	background:#dcdcdc none;
+	background:#dcdcdc url(../Resources/Gradients.png) repeat-x left -2300px;
+	_background:#dcdcdc none;
 	border-top:1px solid #4d4d4d;
 	border-right:1px solid #4d4d4d;
 	border-left:1px solid #4d4d4d;
@@ -650,8 +655,8 @@ td.tabSelected
 
 td:hover.tab
 {
-	/*background:#efefef url(../Resources/Gradients.png) repeat-x left -2300px;*/
-	background:#efefef none;
+	background:#efefef url(../Resources/Gradients.png) repeat-x left -2300px;
+	_background:#efefef none;
 	text-shadow:#f8f8f8 0 1px 0;
     color:#000;
     cursor: pointer;
@@ -713,22 +718,25 @@ table.x-btn-wrap x-btn x-btn-wrap x-btn x-btn-text-icon x-btn-over
 
 div#menu_panel .x-panel-header
 {
-	background: #f1f1f1 none; /* IE6 */
+	background: #f1f1f1 url(../Resources/Gradients.png) repeat-x scroll left -2200px;
+	_background: #f1f1f1 none; /* IE6 */
 	border-top:1px solid #eee;
+	border-bottom:1px solid #8b8b8b;
 }
 
 div#menu_panel .x-panel-body
 {
-	background-color: #fff;
+	background-color: #E3E3E3;
 }
 
 div.NavigationNavBarItem
 {
-	background: #eee none;
+	background: #DCDCDC url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background: #DCDCDC none;
 	border-top: 1px solid #4D4D4D;
 	color: #1D1D1D;
 	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
-	/* font-size: 11px; */
+	font-size: 11px;
 	font-weight: normal;
 	cursor: pointer;
 	text-shadow: #f8f8f8 0 1px 0;
@@ -736,12 +744,13 @@ div.NavigationNavBarItem
 
 div.NavigationNavBarItemHover
 {
-	background: #efefef none;
+	background: #efefef url(../Resources/Gradients.png) repeat-x left -2200px;
+	_background: #efefef none;
 	color: #000;
 	border-top: 1px solid #4d4d4d;
 	color: black;
 	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
-	/* font-size: 11px; */
+	font-size: 11px;
 	font-weight: normal;
 	cursor: pointer;
 	text-shadow: #f8f8f8 0 1px 0;
@@ -749,11 +758,12 @@ div.NavigationNavBarItemHover
 
 div.NavigationNavBarItemActive
 {
-	background:#F8F8F8 none;
+	background: #F8F8F8 url("../Resources/Gradients.png") repeat-x scroll left -5200px ;
+	_background:#F8F8F8 none;
 	border-top: 1px solid #4d4d4d;
 	color: #1D1D1D;
 	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
-	/* font-size: 11px; */
+	font-size: 11px;
 	font-weight: bold;
 	cursor: pointer;
 	line-height: 13.3px;
@@ -763,11 +773,12 @@ div.NavigationNavBarItemActive
 
 div.NavigationNavBarItemSmall
 {
-	background:#DCDCDC none;
+	background: #DCDCDC url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background:#DCDCDC none;
 	border: 1px solid transparent;
 	color: black;
 	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
-	/* font-size: 11px; /*12px; */
+	font-size: 11px; /*12px; */
 	cursor: pointer;
 	padding: 2px 4px 2px 4px;
 	float: left;
@@ -776,11 +787,12 @@ div.NavigationNavBarItemSmall
 
 div.NavigationNavBarItemSmallHover
 {
-	background: #efefef none;
+	background: #efefef url(../Resources/Gradients.png) repeat-x left -2200px;
+	_background: #efefef none;
 	border: 1px solid #8D8D8D;	
 	color: black;
 	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
-	/* font-size: 11px; /*12px; */
+	font-size: 11px; /*12px; */
 	cursor: pointer;
 	padding: 2px 4px 2px 4px;
 	float: left;
@@ -789,11 +801,12 @@ div.NavigationNavBarItemSmallHover
 
 div.NavigationNavBarItemSmallActive
 {
-	background:#F8F8F8 none;
+	background: #F8F8F8 url("../Resources/Gradients.png") repeat-x scroll left -5200px ;
+	_background:#F8F8F8 none;
 	border: 1px solid transparent;
 	color: black;	
 	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,Sans-Serif;
-	/* font-size: 11px; /*12px; */
+	font-size: 11px; /*12px; */
 	cursor: pointer;
 	padding: 2px 4px 2px 4px;
 	float: left;
@@ -867,18 +880,17 @@ div.nodeCls a span
 ===========================================================================*/
 .gray .ajax__tab_header 
 {
-    /*background:url(../Resources/tab_bottomBorder.gif) repeat-x scroll left bottom transparent;*/
+    background:url(../Resources/tab_bottomBorder.gif) repeat-x scroll left bottom transparent;
     font-size:1.2em;
     display:block;
 	list-style-type: none;
-	
-    overflow: hidden;
+	overflow: hidden;
 	padding: 0 0.7em;
 }
 .gray .ajax__tab_header .ajax__tab_outer 
 {
-	/*background:#dcdcdc url(../Resources/Gradients.png) repeat-x left -2300px;*/
-	background:#dcdcdc none;
+	background:#dcdcdc url(../Resources/Gradients.png) repeat-x left -2300px;
+	_background:#dcdcdc none;
 	border-top:1px solid #4d4d4d;
 	border-right:1px solid #4d4d4d;
 	border-left:1px solid #4d4d4d;
@@ -911,18 +923,17 @@ div.nodeCls a span
 }
 .gray .ajax__tab_hover .ajax__tab_outer 
 {
-    /*background:#efefef url(../Resources/Gradients.png) repeat-x left -2300px;*/
-	background:#efefef none;
+    background:#efefef url(../Resources/Gradients.png) repeat-x left -2300px;
+	_background:#efefef none;
 	text-shadow:#f8f8f8 0 1px 0;
     color:#000;
     cursor: pointer;
 }
 .gray .ajax__tab_active .ajax__tab_outer 
 {
-    /* background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px; */
-	
-    background: #f1f1f1 none;
-    /* border-bottom-color:#ffffff; */
+    background: #F8F8F8 url(../Resources/Gradients.png) repeat-x scroll left -2300px;
+	_background:#F8F8F8 none;
+    border-bottom-color:#ffffff;
 }
 .gray .ajax__tab_active .ajax__tab_inner 
 {
@@ -1146,8 +1157,8 @@ div.noTopBorder
 
 .popupWindowHeader
 {
-	/*background:#dcdcdc url(../Resources/Gradients.png) repeat-x left -2300px;*/
-	background:#dcdcdc none;
+	background:#dcdcdc url(../Resources/Gradients.png) repeat-x left -2300px;
+	_background:#dcdcdc none;
 	border-top:1px solid #4d4d4d;
 	border-bottom:1px solid #4d4d4d;
 	color:#1d1d1d;
@@ -1236,7 +1247,7 @@ tr.GridHeader td
 
 #mainDiv ul.tabs li.tabSelected
 {
-    /* background-image: url("../Resources/GradientsSubMenu.png"); */
+    background-image: url("../Resources/GradientsSubMenu.png");
     border: 1px solid #4D4D4D;
     border-bottom-color: #C7C7C7;
     color: #000000;

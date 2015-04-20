@@ -37,7 +37,7 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
         {
             CatalogEventBroadcaster.Instance.LocalEntryUpdating += InstanceOnLocalEntryUpdating;
             CatalogEventBroadcaster.Instance.LocalRelationUpdating += InstanceOnLocalRelationUpdating;
-            EPiServer.Business.Commerce.ProductEventManager.RelationDataUpdating += ProductEventManagerOnRelationDataUpdating;
+            
         }
 
         private void InstanceOnLocalEntryUpdating(object sender, EntryEventArgs entryEventArgs)
@@ -61,13 +61,6 @@ namespace OxxCommerceStarterKit.Web.Business.Initialization
 
 			relationDto.NodeEntryRelation.NodeEntryRelationRowChanging += (sender, e) => NodeEntryRelationRowChanging(sender, e);
 		}
-
-
-        private void ProductEventManagerOnRelationDataUpdating(object sender, CatalogContentUpdateEventArgs catalogContentUpdateEventArgs)
-        {
-            _log.Debug("Relation Updating ({0}): {1}", catalogContentUpdateEventArgs.EventType,
-                string.Join(" | ", catalogContentUpdateEventArgs.CatalogIds));
-        }
 
         private void InstanceOnLocalRelationUpdating(object sender, RelationEventArgs relationEventArgs)
         {

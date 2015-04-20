@@ -2097,7 +2097,7 @@
     <value>Aangepaste pagina</value>
   </data>
   <data name="Code_Validation" xml:space="preserve">
-    <value>Alleen de volgende tekens zijn toegestaan voor code: a-z, 0-9, -, _, ., (, ) en spatie</value>
+    <value>Alleen de volgende tekens zijn toegestaan voor code: "a"-"z", "0"-"9", "-", "_", ".", "(", ")", "," en spatie</value>
   </data>
   <data name="Default_Country" xml:space="preserve">
     <value>Standaardland</value>
@@ -2122,5 +2122,11 @@
   </data>
   <data name="System_Name_MaxLength" xml:space="preserve">
     <value>&lt;br/&gt;&lt;b&gt;Systeemnaam&lt;/b&gt; moet minder dan 30 tekens hebben.</value>
+  </data>
+  <data name="Enabled_Markets" xml:space="preserve">
+    <value>Enabled Markets</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
   </data>
 </root>

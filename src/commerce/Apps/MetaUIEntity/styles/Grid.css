@@ -282,7 +282,7 @@ tr.serverGridFooter td
 	border-right: solid 1px #D6D3D6;
 	padding-top: 0px ! important;
 	padding-bottom: 5px ! important;
-	!padding-bottom: 4px ! important;
+	*padding-bottom: 4px ! important;
 	padding-left: 3px ! important;
 	background-color: #F7F3F7;
 }
@@ -292,7 +292,7 @@ tr.serverGridFooter td
 	overflow: hidden;
 	white-space: nowrap;/*IE ONLY hack*/
 	padding: 0px 3px 5px 3px;
-	!padding: 0px 3px 4px 3px;
+	*padding: 0px 3px 4px 3px;
 	border-bottom: solid 1px #A6A6A6;
 	border-right: solid 1px #D6D3D6;
 	background-color: #F7F3F7;
@@ -321,7 +321,7 @@ tr.serverGridFooter td
 	border-bottom: solid 1px #A6A6A6;
 	background:#F0F0F0 repeat-x 0 bottom;
 	height: 24px;
-	!height: 20px;
+	*height: 20px;
 }
 
 .serverGridBody
@@ -365,7 +365,7 @@ tr.serverGridFooter td
 .serverGridHeaderInner
 {
 	padding: 3px;
-	!padding: 2px 3px 0px 3px; /*IE only hack*/
+	*padding: 2px 3px 0px 3px; /*IE only hack*/
 	border-right: solid 1px #D0D0D0;
 	float: left;
 	/*white-space: nowrap;*/

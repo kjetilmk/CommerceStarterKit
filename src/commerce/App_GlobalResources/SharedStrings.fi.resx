@@ -2097,7 +2097,7 @@
     <value>Mukautettu sivu</value>
   </data>
   <data name="Code_Validation" xml:space="preserve">
-    <value>Koodissa voidaan käyttää vain seuraavia merkkejä: a–z, 0–9, -, _, ., (, ), ja välilyönti.</value>
+    <value>Koodissa voidaan käyttää vain seuraavia merkkejä: "a"-"z", "0"-"9", "-", "_", ".", "(", ")", "," ja välilyönti.</value>
   </data>
   <data name="Default_Country" xml:space="preserve">
     <value>Oletusmaa</value>
@@ -2122,5 +2122,11 @@
   </data>
   <data name="System_Name_MaxLength" xml:space="preserve">
     <value>&lt;br/&gt;&lt;b&gt;Järjestelmänimi&lt;/b&gt; voi sisältää alle 30 merkkiä.</value>
+  </data>
+  <data name="Enabled_Markets" xml:space="preserve">
+    <value>Enabled Markets</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
   </data>
 </root>

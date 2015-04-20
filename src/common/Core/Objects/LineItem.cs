@@ -39,7 +39,7 @@ namespace OxxCommerceStarterKit.Core.Objects
         public LineItem() { }
 		public LineItem(Mediachase.Commerce.Orders.LineItem lineItem, string language)
 		{
-			Code = lineItem.CatalogEntryId;
+            Code = lineItem.Code;
 			Name = lineItem.GetStringValue(Constants.Metadata.LineItem.DisplayName);
 			ArticleNumber = lineItem.GetStringValue(Constants.Metadata.LineItem.ArticleNumber);
 			ImageUrl = lineItem.GetString(Constants.Metadata.LineItem.ImageUrl);

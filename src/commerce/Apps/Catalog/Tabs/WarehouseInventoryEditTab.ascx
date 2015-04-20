@@ -27,7 +27,7 @@
                 <asp:TextBox runat="server" Width="50" ID="InStockQty"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ID="InStockRequired" ControlToValidate="InStockQty" Display="Dynamic" 
                     ErrorMessage="<%$ Resources:CatalogStrings, Entry_In_Stock_Quantity_Required %>" />
-                <asp:RangeValidator runat="server" ID="InStockRange" ControlToValidate="InStockQty" MinimumValue="0" MaximumValue="1000000000" Type="Double" 
+				<asp:RangeValidator runat="server" ID="InStockRange" ControlToValidate="InStockQty" MinimumValue="-1000000000" MaximumValue="1000000000" Type="Double" 
                     Display="Dynamic" ErrorMessage="<%$ Resources:CatalogStrings, Entry_Enter_Valid_Quantity %>"></asp:RangeValidator>
             </td>
         </tr>

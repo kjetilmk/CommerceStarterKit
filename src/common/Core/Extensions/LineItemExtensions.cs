@@ -55,7 +55,7 @@ namespace OxxCommerceStarterKit.Core.Extensions
 		/// <returns></returns>
 		public static T GetEntryContent<T>(this LineItem lineItem) where T : EntryContentBase
 		{
-			return GetEntryContent<T>(lineItem.CatalogEntryId);
+            return GetEntryContent<T>(lineItem.Code);
 		}
 
 

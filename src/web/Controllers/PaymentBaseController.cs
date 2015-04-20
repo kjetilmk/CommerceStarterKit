@@ -38,7 +38,7 @@ namespace OxxCommerceStarterKit.Web.Controllers
         {
             var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
             var linksRepository = ServiceLocator.Current.GetInstance<ILinksRepository>();
-            var languageSelector = ServiceLocator.Current.GetInstance<ILanguageSelector>();
+            var languageSelector = ServiceLocator.Current.GetInstance<LanguageSelector>();
             var warehouseInventoryService = ServiceLocator.Current.GetInstance<IWarehouseInventoryService>();
 
             foreach (var p in expirationCandidates)

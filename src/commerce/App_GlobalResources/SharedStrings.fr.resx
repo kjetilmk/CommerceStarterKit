@@ -2106,7 +2106,7 @@
     <value>Détails du bon de commande</value>
   </data>
   <data name="Code_Validation" xml:space="preserve">
-    <value>Seuls les caractères suivants sont autorisés pour le code : a-z, 0-9, -, _, ., (, ), et espace.</value>
+    <value>Seuls les caractères suivants sont autorisés pour le code : "a"-"z", "0"-"9", "-", "_", ".", "(", ")", "," et espace.</value>
   </data>
   <data name="Default_Country" xml:space="preserve">
     <value>Pays par défaut</value>
@@ -2131,5 +2131,11 @@
   </data>
   <data name="System_Name_MaxLength" xml:space="preserve">
     <value>&lt;br/&gt;&lt;b&gt;Le nom du système&lt;/b&gt; doit contenir moins de 30 caractères.</value>
+  </data>
+  <data name="Enabled_Markets" xml:space="preserve">
+    <value>Enabled Markets</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
   </data>
 </root>

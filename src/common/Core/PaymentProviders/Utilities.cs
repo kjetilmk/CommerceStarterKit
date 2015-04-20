@@ -38,7 +38,7 @@ namespace OxxCommerceStarterKit.Core.PaymentProviders
         /// <returns>Display name with current language</returns>
         public static string GetDisplayNameOfCurrentLanguage(this LineItem item, int maxSize)
         {
-            Entry entry = CatalogContext.Current.GetCatalogEntry(item.CatalogEntryId, new CatalogEntryResponseGroup(CatalogEntryResponseGroup.ResponseGroup.CatalogEntryFull));
+            Entry entry = CatalogContext.Current.GetCatalogEntry(item.Code, new CatalogEntryResponseGroup(CatalogEntryResponseGroup.ResponseGroup.CatalogEntryFull));
             // if the entry is null (product is deleted), return item display name
             var displayName = (entry != null) ? StoreHelper.GetEntryDisplayName(entry).StripPreviewText(maxSize <= 0 ? 100 : maxSize) : 
                 item.DisplayName.StripPreviewText(maxSize <= 0 ? 100 : maxSize);

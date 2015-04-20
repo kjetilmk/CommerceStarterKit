@@ -2097,7 +2097,7 @@
     <value>Brugerdefineret side</value>
   </data>
   <data name="Code_Validation" xml:space="preserve">
-    <value>Koden må kun indeholde følgende tegn: a-z, 0-9, -, _, ., (, ) og mellemrum.</value>
+    <value>Koden må kun indeholde følgende tegn: "a"-"z", "0"-"9", "-", "_", ".", "(", ")", "," og mellemrum.</value>
   </data>
   <data name="Default_Country&quot;" xml:space="preserve">
     <value>Standardland</value>
@@ -2122,5 +2122,11 @@
   </data>
   <data name="System_Name_MaxLength" xml:space="preserve">
     <value>&lt;br/&gt;&lt;b&gt;Systemnavn&lt;/b&gt; skal have mindre end 30 tegn.</value>
+  </data>
+  <data name="Enabled_Markets" xml:space="preserve">
+    <value>Enabled Markets</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
   </data>
 </root>

@@ -123,7 +123,7 @@ namespace OxxCommerceStarterKit.Web.Controllers
             int i = 1;
             foreach (LineItem lineItem in model.LineItems)
             {
-                tracking.ProductAdd(code: lineItem.CatalogEntryId,
+                tracking.ProductAdd(code: lineItem.Code,
                     name: lineItem.DisplayName,
                     quantity: (int)lineItem.Quantity,
                     price: (double)lineItem.PlacedPrice,

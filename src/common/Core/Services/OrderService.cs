@@ -138,7 +138,7 @@ namespace OxxCommerceStarterKit.Core.Services
             return new LineItemModel()
             {
                 ArticleNumber = item.GetStringValue(Constants.Metadata.LineItem.ArticleNumber),
-                CatalogEntryId = item.CatalogEntryId,
+                CatalogEntryId = item.Code,
                 Color = item.GetStringValue(Constants.Metadata.LineItem.Color),
                 Description = item.GetStringValue(Constants.Metadata.LineItem.Description),
                 Discounts = MapDiscounts(item.Discounts),
