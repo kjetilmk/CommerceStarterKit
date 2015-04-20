@@ -46,6 +46,10 @@ namespace OxxCommerceStarterKit.Web.Controllers
             var model = CreatePageViewModel(currentPage);
             var editHints = ViewData.GetEditHints<Chrome, HomePage>();
             editHints.AddConnection(c => c.GlobalFooterContent, p => p.GlobalFooterContent);
+            // Since we're handling the logo property a bit different (url comes from view model)
+            // we need to refresh the page when it changes.
+            editHints.AddFullRefreshFor(c => c.LogoImage);
+
 
             return View(virtualPath, model);
         }

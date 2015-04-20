@@ -37,8 +37,8 @@
     }
 </head>
 <body>
+    @RenderSection("BodyStart", required: false)
     @Html.RenderEPiServerQuickNavigator()
-    
     @if (chrome.ShowWarning)
     {
         @Html.Partial("SetupWarning")
