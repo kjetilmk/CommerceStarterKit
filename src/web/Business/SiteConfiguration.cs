@@ -36,7 +36,15 @@ namespace OxxCommerceStarterKit.Web.Business
             // This can actually be 0 if we have a problem with our language settings
             if (ContentReference.StartPage != null && ContentReference.StartPage.ID > 0)
             {
-                var startPage = contentLoader.Get<HomePage>(ContentReference.StartPage);
+                HomePage startPage = null;
+                try
+                {
+                    startPage = contentLoader.Get<HomePage>(ContentReference.StartPage);
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
                 return startPage;
             }
             return null;
