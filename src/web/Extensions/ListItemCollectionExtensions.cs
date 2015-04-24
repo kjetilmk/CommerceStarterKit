@@ -18,79 +18,12 @@ using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using EPiServer.SpecializedProperties;
 using EPiServer.Web;
+using EPiServer.Web.Routing;
 
 namespace OxxCommerceStarterKit.Web.Extensions
 {
 	public static class LinkItemCollectionExtension
 	{
-		/// <summary>
-		/// Prepares all links in a LinkItemCollection for output
-		/// by filtering out inaccessible links and ensures all links are correct.
-		/// </summary>
-		/// <param name="linkItemCollection">The collection of links to prepare.</param>
-		/// <param name="targetExternalLinksToNewWindow">True will set target to _blank if target is not specified for the LinkItem.</param>
-		/// <returns>A prepared and filtered list of LinkItems</returns>
-		public static IEnumerable<LinkItem> ToPreparedLinkItems(this LinkItemCollection linkItemCollection, bool targetExternalLinksToNewWindow)
-		{
-			var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
-
-			if (linkItemCollection != null)
-			{
-				foreach (var linkItem in linkItemCollection)
-				{
-					var url = new UrlBuilder(linkItem.Href);
-					if (PermanentLinkMapStore.ToMapped(url))
-					{
-						var pr = PermanentLinkUtility.GetContentReference(url);
-						if (!PageReference.IsNullOrEmpty(pr))
-						{
-							// page
-							var page = contentLoader.Get<PageData>(pr);
-							if (IsPageAccessible(page))
-							{
-								linkItem.Href = page.LinkURL;
-								yield return linkItem;
-							}
-						}
-						else
-						{
-							// document
-							if (IsFileAccessible(linkItem.Href))
-							{
-								Global.UrlRewriteProvider.ConvertToExternal(url, null, System.Text.Encoding.UTF8);
-								linkItem.Href = url.Path;
-								yield return linkItem;
-							}
-						}
-					}
-					else if (!linkItem.Href.StartsWith("~"))
-					{
-						// external
-						if (targetExternalLinksToNewWindow && string.IsNullOrEmpty(linkItem.Target))
-						{
-							linkItem.Target = "_blank";
-						}
-						if (linkItem.Href.StartsWith("mailto:") || linkItem.Target == "null")
-						{
-							linkItem.Target = string.Empty;
-						}
-						yield return linkItem;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Prepares all links in a LinkItemCollection for output
-		/// by filtering out inaccessible links and ensures all links are correct.
-		/// </summary>
-		/// <param name="linkItemCollection">The collection of links to prepare.</param>
-		/// <returns>A prepared and filtered list of LinkItems</returns>
-		public static IEnumerable<LinkItem> ToPreparedLinkItems(this LinkItemCollection linkItemCollection)
-		{
-			return linkItemCollection.ToPreparedLinkItems(false);
-		}
-
 		/// <summary>
 		/// Converts a LinkItemCollection to typed pages. Any non-pages will be filtered out. (Not compatible with PageList - Use ToPageDataList)
 		/// </summary>
@@ -99,27 +32,13 @@ namespace OxxCommerceStarterKit.Web.Extensions
 		/// <returns>An enumerable of typed PageData</returns>
 		public static IEnumerable<T> ToPages<T>(this LinkItemCollection linkItemCollection) where T : PageData
 		{
-			var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
-
-			if (linkItemCollection != null)
-			{
-				foreach (var linkItem in linkItemCollection)
-				{
-					var url = new UrlBuilder(linkItem.Href);
-					if (PermanentLinkMapStore.ToMapped(url))
-					{
-						var pr = PermanentLinkUtility.GetContentReference(url);
-						if (!PageReference.IsNullOrEmpty(pr))
-						{
-							var page = contentLoader.Get<PageData>(pr);
-							if (page is T && IsPageAccessible(page))
-							{
-								yield return (T)page;
-							}
-						}
-					}
-				}
-			}
+            foreach (PageData page in ToContent<PageData>(linkItemCollection))
+		    {
+                if (IsPageAccessible(page))
+                {
+                    yield return (T)page;
+                }
+		    }
 		}
 
 		/// <summary>
@@ -128,29 +47,9 @@ namespace OxxCommerceStarterKit.Web.Extensions
 		/// <typeparam name="T">PageType</typeparam>
 		/// <param name="linkItemCollection">The collection of links to convert</param>
 		/// <returns>An enumerable of typed PageData</returns>
-		public static IEnumerable<T> ToMedia<T>(this LinkItemCollection linkItemCollection) where T : MediaData
+        public static IEnumerable<T> ToMedia<T>(this LinkItemCollection linkItemCollection) where T : IContentData
 		{
-			var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
-
-			if (linkItemCollection != null)
-			{
-				foreach (var linkItem in linkItemCollection)
-				{
-					var url = new UrlBuilder(linkItem.Href);
-					if (PermanentLinkMapStore.ToMapped(url))
-					{
-						var pr = PermanentLinkUtility.GetContentReference(url);
-						if (!PageReference.IsNullOrEmpty(pr))
-						{
-							var page = contentLoader.Get<MediaData>(pr);
-							if (page is T)
-							{
-								yield return (T)page;
-							}
-						}
-					}
-				}
-			}
+		    return ToContent<T>(linkItemCollection);
 		}
 
         /// <summary>
@@ -159,7 +58,7 @@ namespace OxxCommerceStarterKit.Web.Extensions
         /// <typeparam name="T">Content Type</typeparam>
         /// <param name="linkItemCollection">The collection of links to convert</param>
         /// <returns>An enumerable of typed ContentData</returns>
-        public static IEnumerable<T> ToContent<T>(this LinkItemCollection linkItemCollection) where T : ContentData
+        public static IEnumerable<T> ToContent<T>(this LinkItemCollection linkItemCollection) where T : IContentData
         {
             var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
 
@@ -168,17 +67,10 @@ namespace OxxCommerceStarterKit.Web.Extensions
                 foreach (var linkItem in linkItemCollection)
                 {
                     var url = new UrlBuilder(linkItem.Href);
-                    if (PermanentLinkMapStore.ToMapped(url))
+                    var content = UrlResolver.Current.Route(url);
+                    if (content is T)
                     {
-                        var pr = PermanentLinkUtility.GetContentReference(url);
-                        if (!ContentReference.IsNullOrEmpty(pr))
-                        {
-                            var page = contentLoader.Get<ContentData>(pr);
-                            if (page is T)
-                            {
-                                yield return (T)page;
-                            }
-                        }
+                        yield return (T)content;
                     }
                 }
             }
