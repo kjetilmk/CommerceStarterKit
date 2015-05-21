@@ -289,7 +289,6 @@
     <Compile Include="Extensions\CustomerContactExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\LineItemExtensions.cs" />
-    <Compile Include="Extensions\LinkItemCollectionExtensions.cs" />
     <Compile Include="Extensions\MetaStorageExtensions.cs" />
     <Compile Include="Extensions\PriceExtensions.cs" />
     <Compile Include="Extensions\PurchaseOrderExtensions.cs" />
